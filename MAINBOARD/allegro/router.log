@@ -1,0 +1,16 @@
+
+---------------------------------------------------------------------------
+BOARD: E:/Project/THEDC/MAINBOARD/allegro/mainboard.brd ROUTER: 10-0-25 of 10-Nov-94
+DATE: Fri Oct 23 14:48:06 2015        HOST: ADMIN-PC
+---------------------------------------------------------------------------
+Cnt St-ex Router      Att  Inv Miss Com% Drcs Vias   Etch  Cpu exec  Cpu Tot
+--------- ------    ----- ---- ---- ---- ---- ---- ------  -------- --------
+  Start    ----       241 24205132   76   0%    0   30    80.0  0:00:09  0:00:09
+
+---------------------------------------------------------------------------
+BOARD: E:/Project/THEDC/MAINBOARD/allegro/mainboard.brd ROUTER: 10-0-25 of 10-Nov-94
+DATE: Fri Oct 23 14:48:07 2015        HOST: ADMIN-PC
+---------------------------------------------------------------------------
+Cnt St-ex Router      Att  Inv Miss Com% Drcs Vias   Etch  Cpu exec  Cpu Tot
+--------- ------    ----- ---- ---- ---- ---- ---- ------  -------- --------
+  Start    ----       241   76   76  68%    0   13    78.0  0:00:09  0:00:09
