@@ -1,0 +1,33 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Dangling Line, Via and Antenna Report                            )
+(                                                                     )
+(    Drawing          : mainboard.brd                                 )
+(    Software Version : 16.5P003                                      )
+(    Date/Time        : Sat Oct 24 13:41:25 2015                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Report methodology:
+  - Dangling lines have at least one end not connected.
+  - Dangling vias have one or no connection
+      - Plus are not a test, thieving or netshort property via.
+  - Antenna vias do not have connections on their start and end layers.
+      - Plus they are not a thieving vias.
+      - Optionally, VOLTAGE nets, testvias and through vias can be suppressed with
+        the environment variable report_antennavia.
+      - Section may be suppressed by variable report_noantennavia.
+  - In all cases output is suppressed if an object has the OK_DANGLE
+    property or is not part of the current partition.
+
+
+<< Dangling Lines >>  - Location marked with a star (*) is dangling.
+  Net                 Layer                  Length       Location
+  ------------------------------------------------------------------------------------------
+  3V3                  BOTTOM                692.43      (179.00 535.00) to *(-513.43 535.00)
+
+<< Summary >>
+  Total dangling lines:       1
+  Total dangling vias:        0
+  Total antenna vias:         0

@@ -1,0 +1,193 @@
+
+*********************************************************************
+                         ROUTER-LOG
+*********************************************************************
+
+NEW ROUTE on E:/Project/THEDC/MAINBOARD/allegro/mainboard.brd
+Started on   Fri Oct 23 14:48:06 2015
+
+---------------------------------------------------------------------
+Statistics at the Start of the Route:
+----------------------------
+
+    Board Statistics:
+    -----------------
+        Components:  Placed 100  Unplaced 0  Total 100
+        Nets:  W/Rats 87  No/Rats 0  Total 88
+        Pins:  W/Rats 329  No/Rats 0  Unused 34  Unplaced 0  Total 363
+        Equivalent ICs (1 pin = 1/14 EIC)  25
+        Router Keepin (in) (-1.8685,-1.8685) by (1.8685,1.8685)
+        Board area (sq in) 14.0
+        Board density (sq in/EIC) 0.539
+
+    Connection Statistics:        W/Rats      No/Rats      Total
+    ----------------------        ------      -------      -----
+        Connections                241           0          241
+        Already Connected          165           0          165
+        Missing Connections         76           0           76
+        Connection Completion       68.46%       0.00%       68.46%
+        Manh Distance (inches)     126.38
+        Etch Length (inches)        80.49        0.00        80.49
+        Number of vias		    30           0           30
+        Vias per Connection          0.18        0.00         0.18
+        Smd pins with attached clines                       181
+
+
+
+---------------------------------------------------------------------
+General Routing Parameters
+--------------------------
+
+    Checkpoint at:  Last step 1:  Last execution 1
+    Overwrite router.log
+    Auto Save ON
+    Dynamic Control OFF
+    Direct Path Router OFF
+    Component Orientation  HORIZONTAL
+    Order Connections Short First
+    Max net priority 0
+    Corner type: 45
+    Side Entry ALLOWED
+    DO NOT FORCE to Pin Escape
+    Ripup/Cleanup Pin Escapes OFF
+    Via Preference OFF
+
+
+---------------------------------------------------------------------
+Layers and Drc Rules
+--------------------
+
+    Subclass                          Spacing       Line Width
+    Idx Name                Dir   ll    lv    vv    Def   Neck    Via    Max45
+    --- ----                ---   --    --    --    ---   ----    ---    ---
+     1  TOP                  H  6.00  5.00  5.00   6.00  6.00   40.00  25.00
+        X grids:     1.00  Offset: 0.00
+        Y grids:     1.00  Offset: 0.00
+    --- ----                ---   --    --    --    ---   ----    ---    ---
+     2  BOTTOM               V  6.00  5.00  5.00   6.00  6.00   24.00  25.00
+        X grids:     1.00  Offset: 0.00
+        Y grids:     1.00  Offset: 0.00
+
+---------------------------------------------------------------------
+Statistics at the End of the Route:
+----------------------------
+
+
+    Connection Statistics:        W/Rats      No/Rats      Total
+    ----------------------        ------      -------      -----
+        Connections                241           0          241
+        Already Connected          165           0          165
+        Missing Connections         76           0           76
+        Connection Completion       68.46%       0.00%       68.46%
+        Etch Length (inches)        79.14        0.00        79.14
+        Number of vias		    13           0           13
+        Vias per Connection          0.08        0.00         0.08
+        Smd pins with attached clines                       175
+
+
+
+    Total cpu time - 0:0:9 hours
+    Total elapsed time - -4084:-59:-54 hours
+    Invalid Count Time: 0 0:0:0 hours
+    Route ended on  Fri Oct 23 14:48:06 2015
+
+************************************************************************
+** count_for_sa:  failed 
+** order_pp_list:  failed 
+** rt_build_pass:  failed 
+** count_invalid:  failed 
+
+
+*********************************************************************
+                         ROUTER-LOG
+*********************************************************************
+
+NEW ROUTE on E:/Project/THEDC/MAINBOARD/allegro/mainboard.brd
+Started on   Fri Oct 23 14:48:07 2015
+
+---------------------------------------------------------------------
+Statistics at the Start of the Route:
+----------------------------
+
+    Board Statistics:
+    -----------------
+        Components:  Placed 100  Unplaced 0  Total 100
+        Nets:  W/Rats 87  No/Rats 0  Total 88
+        Pins:  W/Rats 329  No/Rats 0  Unused 34  Unplaced 0  Total 363
+        Equivalent ICs (1 pin = 1/14 EIC)  25
+        Router Keepin (in) (-1.8685,-1.8685) by (1.8685,1.8685)
+        Board area (sq in) 14.0
+        Board density (sq in/EIC) 0.539
+
+    Connection Statistics:        W/Rats      No/Rats      Total
+    ----------------------        ------      -------      -----
+        Connections                241           0          241
+        Already Connected          165           0          165
+        Missing Connections         76           0           76
+        Connection Completion       68.46%       0.00%       68.46%
+        Manh Distance (inches)     126.38
+        Etch Length (inches)        77.70        0.00        77.70
+        Number of vias		    13           0           13
+        Vias per Connection          0.08        0.00         0.08
+        Smd pins with attached clines                       175
+
+
+
+---------------------------------------------------------------------
+General Routing Parameters
+--------------------------
+
+    Checkpoint at:  Last step 1:  Last execution 1
+    Overwrite router.log
+    Auto Save ON
+    Dynamic Control OFF
+    Direct Path Router OFF
+    Component Orientation  HORIZONTAL
+    Order Connections Short First
+    Max net priority 0
+    Corner type: 45
+    Side Entry ALLOWED
+    DO NOT FORCE to Pin Escape
+    Ripup/Cleanup Pin Escapes OFF
+    Via Preference OFF
+
+
+---------------------------------------------------------------------
+Layers and Drc Rules
+--------------------
+
+    Subclass                          Spacing       Line Width
+    Idx Name                Dir   ll    lv    vv    Def   Neck    Via    Max45
+    --- ----                ---   --    --    --    ---   ----    ---    ---
+     1  TOP                  H  6.00  5.00  5.00   6.00  6.00   40.00  25.00
+        X grids:     1.00  Offset: 0.00
+        Y grids:     1.00  Offset: 0.00
+    --- ----                ---   --    --    --    ---   ----    ---    ---
+     2  BOTTOM               V  6.00  5.00  5.00   6.00  6.00   24.00  25.00
+        X grids:     1.00  Offset: 0.00
+        Y grids:     1.00  Offset: 0.00
+
+    ATTEMPTS: 0 this step: 0 skips:  
+    count_invalid 0 in 0  0:0:0 hours
+---------------------------------------------------------------------
+Statistics at the End of the Route:
+----------------------------
+
+
+    Connection Statistics:        W/Rats      No/Rats      Total
+    ----------------------        ------      -------      -----
+        Connections                241           0          241
+        Already Connected          165           0          165
+        Missing Connections         76           0           76
+        Connection Completion       68.46%       0.00%       68.46%
+        Etch Length (inches)        77.70        0.00        77.70
+        Number of vias		    13           0           13
+        Vias per Connection          0.08        0.00         0.08
+        Smd pins with attached clines                       175
+
+
+
+    Total cpu time - 0:0:9 hours
+    Total elapsed time - -4084:-59:-53 hours
+    Invalid Count Time: 0 0:0:0 hours
+    Route ended on  Fri Oct 23 14:48:07 2015
