@@ -5,10 +5,11 @@ STLINK=~/stlink.git
 SRCS=main.c system_stm32f4xx.c stm32f4xx_it.c
 
 # Library modules
-SRCS += stm32f4xx_gpio.c stm32f4xx_rcc.c stm32f4xx_tim.c stm32f4xx_usart.c misc.c
-
+SRCS += stm32f4xx_gpio.c stm32f4xx_rcc.c stm32f4xx_tim.c stm32f4xx_usart.c 
+SRCS += misc.c stm32f4xx_flash.c stm32f4xx_exti.c stm32f4xx_dma.c
 # User Defined modules 
-SRCS += usart.c timer.c pwm.c 
+SRCS += timer.c pwm.c motor.c usart.c strategy.c
+#SRCS += usart_dma.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
 PROJ_NAME=PaperCut

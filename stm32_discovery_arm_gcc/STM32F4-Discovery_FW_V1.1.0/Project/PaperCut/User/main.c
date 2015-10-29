@@ -24,7 +24,7 @@
 #include "stm32f4xx_conf.h"
 #include "stm32f4xx_it.h"
 #include "stm32f4xx.h"
-//#include "misc.h"
+//#include "usart_dma.h"
 #include "usart.h"
 #include "timer.h"
 #include "pwm.h"
@@ -38,13 +38,6 @@
 
 uint16_t PrescalerValue = 0;
 
-
-void RCC_Configuration(void);
-void NVIC_Configuration(void);
-/* Private function prototypes -----------------------------------------------*/
-//void TIM_Config(void);
-//void USART1_Configuration(void);
-/* Private functions ---------------------------------------------------------*/
 
 /**
   * @brief  Main program
@@ -61,62 +54,19 @@ int main(void)
      */
 
   /* TIM Configuration */
-  TIM_Config();
-  USART1_Configuration();
-  pwm_config(PrescalerValue);
+  //TIM_Config();
+  //pwm_config(PrescalerValue);
+  //init_uart();
+  USART2_Configuration();
   
-  //USART1_puts("Hello World\r\n");
+  // uint8_t txDMABuffer[23]={0x11}; 
+  // uint16_t txDMARear = sizeof(txDMABuffer); 
+  // drv_tx(txDMABuffer, txDMARear);
+  
+  
   while (1)
-  {}
-}
-
-/*******************************************************************************
-* Function Name  : RCC_Configuration
-* Description    : Configures the different system clocks.
-* Input          : None
-* Output         : None
-* Return         : None
-*******************************************************************************/
-void RCC_Configuration(void)
-{    
-    //GPIO_InitTypeDef GPIO_InitStructure;
-    //RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO|RCC_APB2Periph_USART1, ENABLE);
-    //RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);
-}
-
-/*******************************************************************************
-* Function Name  : NVIC_Configuration
-* Description    : Configures Vector Table base location.
-* Input          : None
-* Output         : None
-* Return         : None
-*******************************************************************************/
-void NVIC_Configuration(void)
-{ 
-  //NVIC_InitTypeDef  NVIC_InitStructure;
-#ifdef  VECT_TAB_RAM  
-  /* Set the Vector Table base location at 0x20000000 */ 
-  NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0); 
-#else  /* VECT_TAB_FLASH  */
-  /* Set the Vector Table base location at 0x08000000 */ 
-  NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);   
-#endif
-  
-  // NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-  // NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-  // NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  // NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  // NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  // NVIC_Init(&NVIC_InitStructure);
-  NVIC_InitTypeDef NVIC_InitStructure;
-  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);//选择分组方式0
-  
-  /* 使能 USART1 中断 */
-  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-
+  {//USART2_puts("hello");
+  }
 }
 
 #ifdef  USE_FULL_ASSERT
