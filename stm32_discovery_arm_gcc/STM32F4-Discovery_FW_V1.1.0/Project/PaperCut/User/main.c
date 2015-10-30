@@ -64,8 +64,7 @@ int main(void)
   // uint16_t txDMARear = sizeof(txDMABuffer); 
   // drv_tx(txDMABuffer txDMARear);
   
-  int i = 20;
-  while (i--)
+  while (1)
   {
     //USART2_puts("hello");
 
@@ -81,7 +80,7 @@ int main(void)
   //   }
   //   if(i==0)
   //     i=20;
-  // }
+   }
 }
 
 #ifdef  USE_FULL_ASSERT
