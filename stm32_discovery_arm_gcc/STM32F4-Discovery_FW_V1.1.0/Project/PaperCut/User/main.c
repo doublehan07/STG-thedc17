@@ -39,9 +39,8 @@
 
 uint16_t PrescalerValue = 0;
 
-
 /**
-  * @brief  Main program
+  * @brief  Main programm
   * @param  None
   * @retval None
   */
@@ -56,24 +55,33 @@ int main(void)
   uint16_t adcValue;
   ADC_Config();
   /* TIM Configuration */
-  //TIM_Config();
-  //pwm_config(PrescalerValue);
+  TIM_Config();
+  pwm_config(PrescalerValue);
   //init_uart();
   USART2_Configuration();
   
   // uint8_t txDMABuffer[23]={0x11}; 
   // uint16_t txDMARear = sizeof(txDMABuffer); 
-  // drv_tx(txDMABuffer, txDMARear);
+  // drv_tx(txDMABuffer txDMARear);
   
-  
-  while (1)
+  int i = 20;
+  while (i--)
   {
     //USART2_puts("hello");
-    ADC_SoftwareStartConv(ADC3);
-    while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
-    //0~4095 对应到 0~VDD
-    adcValue=ADC_GetConversionValue(ADC3);
-  }
+
+    // ADC_SoftwareStartConv(ADC3);
+    // while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
+    // //0~4095 对应到 0~VDD
+    // adcValue=ADC_GetConversionValue(ADC3);
+    
+    //pwm_set_DutyCycle1();
+  //   int j = 1000;
+  //   while(j--){
+  //     pwm_set_DutyCycle1(i);
+  //   }
+  //   if(i==0)
+  //     i=20;
+  // }
 }
 
 #ifdef  USE_FULL_ASSERT

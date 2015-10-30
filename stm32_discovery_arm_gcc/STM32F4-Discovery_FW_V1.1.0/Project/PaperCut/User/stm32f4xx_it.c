@@ -23,7 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
-
+#include "stm32f4_discovery.h"
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
   */
@@ -147,6 +147,12 @@ void SysTick_Handler(void)
 /*void PPP_IRQHandler(void)
 {
 }*/
+
+
+
+
+
+/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 
 /**
   * @}
