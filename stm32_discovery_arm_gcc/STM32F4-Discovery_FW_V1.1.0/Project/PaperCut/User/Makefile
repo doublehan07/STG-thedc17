@@ -6,9 +6,9 @@ SRCS=main.c system_stm32f4xx.c stm32f4xx_it.c
 
 # Library modules
 SRCS += stm32f4xx_gpio.c stm32f4xx_rcc.c stm32f4xx_tim.c stm32f4xx_usart.c 
-SRCS += misc.c stm32f4xx_flash.c stm32f4xx_exti.c stm32f4xx_dma.c
+SRCS += misc.c stm32f4xx_flash.c stm32f4xx_exti.c stm32f4xx_dma.c stm32f4xx_adc.c 
 # User Defined modules 
-SRCS += timer.c pwm.c motor.c usart.c strategy.c
+SRCS += timer.c pwm.c motor.c usart.c strategy.c adc.c
 #SRCS += usart_dma.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)
@@ -32,7 +32,6 @@ CFLAGS += -I$(STM_COMMON)/Utilities/STM32F4-Discovery
 CFLAGS += -I$(STM_COMMON)/Libraries/CMSIS/Include 
 CFLAGS += -I$(STM_COMMON)/Libraries/CMSIS/ST/STM32F4xx/Include
 CFLAGS += -I$(STM_COMMON)/Libraries/STM32F4xx_StdPeriph_Driver/inc
-
 
 # add startup file to build
 SRCS += $(STM_COMMON)/Libraries/CMSIS/ST/STM32F4xx/Source/Templates/TrueSTUDIO/startup_stm32f4xx.s 

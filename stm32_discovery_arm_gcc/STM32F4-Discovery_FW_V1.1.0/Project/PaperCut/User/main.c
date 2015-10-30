@@ -25,6 +25,7 @@
 #include "stm32f4xx_it.h"
 #include "stm32f4xx.h"
 //#include "usart_dma.h"
+#include "adc.h"  
 #include "usart.h"
 #include "timer.h"
 #include "pwm.h"
@@ -52,7 +53,8 @@ int main(void)
        To reconfigure the default setting of SystemInit() function, refer to
        system_stm32f4xx.c file
      */
-
+  uint16_t adcValue;
+  ADC_Config();
   /* TIM Configuration */
   //TIM_Config();
   //pwm_config(PrescalerValue);
@@ -65,7 +67,12 @@ int main(void)
   
   
   while (1)
-  {//USART2_puts("hello");
+  {
+    //USART2_puts("hello");
+    ADC_SoftwareStartConv(ADC3);
+    while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
+    //0~4095 对应到 0~VDD
+    adcValue=ADC_GetConversionValue(ADC3);
   }
 }
 
