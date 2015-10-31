@@ -39,6 +39,8 @@ void pwm_config(uint16_t pre ) {
      based on this variable will be incorrect.    
   ----------------------------------------------------------------------- */  
 
+	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+	TIM_OCInitTypeDef  TIM_OCInitStructure;
   /* Compute the prescaler value */
   PrescalerValue = (uint16_t) ((SystemCoreClock /2) / 720000) - 1;
 

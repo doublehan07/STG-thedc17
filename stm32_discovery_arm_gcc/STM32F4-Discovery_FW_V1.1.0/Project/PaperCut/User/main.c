@@ -31,6 +31,8 @@
 #include "usart.h"
 #include "timer.h"
 #include "pwm.h"
+#include "infrared.h"
+
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
   */
@@ -44,6 +46,7 @@ void Delay(vu32);
 void ADC3_CH12_DMA_Config(void);
 __IO uint16_t ADC3ConvertedValue = 0;
 __IO uint32_t ADC3ConvertedVoltage = 0;
+uint8_t status;
 /**
   * @brief  Main programm
   * @param  None
@@ -91,9 +94,14 @@ int main(void)
   //sprintf( str, "%05X", ADC3ConvertedVoltage );
   // Usart2Put('A');
   // USART2_puts(str);
-  //Delay(0x8FFFF);  
-  USART_SendData(USART2,'A');
-  //printf("%s",str);
+  Delay(0x8FFFF);  
+  //USART_SendData(USART2,'A');
+	 //status = GPIOD->IDR&GPIO_Pin_8;
+//	 if((GPIOC->IDR&(1<<0))==(1<<0))
+//		 printf("gpiod8 high");
+//	 else
+//		 printf("gpiod8 low");
+  printf("%d\n",GPIO_ReadInputDataBit (GPIOA,8));
    //USART2_puts(ADC_ConvertedValue);
    //USART2_puts("ADC_ConvertedValue", ADC_ConvertedValue*3300/4096);
    }

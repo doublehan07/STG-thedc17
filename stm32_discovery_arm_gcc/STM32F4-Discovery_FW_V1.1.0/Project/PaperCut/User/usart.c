@@ -56,7 +56,7 @@ void USART2_Configuration(void)
 {
     USART_InitTypeDef USART_InitStructure;
     GPIO_InitTypeDef GPIO_InitStructure;
-    
+    NVIC_InitTypeDef NVIC_InitStructure;
     /* --------------------------- System Clocks Configuration -----------------*/
     /* USART1 clock enable */
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
@@ -96,7 +96,7 @@ void USART2_Configuration(void)
     //USART_ITConfig(USART1, USART_IT_TXE, ENABLE);//使能发送中断，在发送完数据 后产生。
     USART_Cmd(USART2, ENABLE);
 
-    NVIC_InitTypeDef NVIC_InitStructure;
+    
 
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);     
     NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn; 

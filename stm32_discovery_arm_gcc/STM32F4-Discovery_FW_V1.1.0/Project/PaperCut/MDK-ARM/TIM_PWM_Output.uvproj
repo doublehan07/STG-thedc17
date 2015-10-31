@@ -144,7 +144,7 @@
             <UsePdscDebugDescription>0</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>7</TargetSelection>
+          <TargetSelection>13</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -158,7 +158,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
+            <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -168,10 +168,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4104</DriverSelection>
           </Flash1>
           <bUseTDR>0</bUseTDR>
-          <Flash2>Segger\JL2CM3.dll</Flash2>
+          <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -362,7 +362,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER STM32F4XX</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\Libraries\CMSIS\Include;..\..\..\..\Libraries\CMSIS\ST\STM32F4xx\Include;..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\..\..\Utilities\STM32F4-Discovery;..\..\..\Utilities\STM32F4-Discovery;..\User;..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\..\Utilities\STM32F4-Discovery;..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src</IncludePath>
+              <IncludePath>..\;..\..\..\Libraries\CMSIS\Include;..\..\..\..\Libraries\CMSIS\ST\STM32F4xx\Include;..\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\..\..\Utilities\STM32F4-Discovery;..\..\..\Utilities\STM32F4-Discovery;..\User;..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\..\Utilities\STM32F4-Discovery;..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src;..\MDK-ARM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -499,6 +499,16 @@
               <FileName>system_stm32f4xx.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\Libraries\CMSIS\ST\STM32F4xx\Include\system_stm32f4xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>infrared.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\infrared.c</FilePath>
+            </File>
+            <File>
+              <FileName>infrared.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\infrared.h</FilePath>
             </File>
           </Files>
         </Group>
