@@ -1,17 +1,20 @@
 #include "pwm.h"
 
-uint16_t CCR1_Val = 300;
+uint16_t CCR1_Val = 500;
+uint16_t period = 1000;
 //uint16_t CCR2_Val = 300;
 //uint16_t CCR3_Val = 300;
 //uint16_t CCR4_Val = 300;
 
-void pwm_config(uint16_t pre) {
+void pwm_config(uint16_t pre ) {
   uint16_t PrescalerValue = pre;
+
 /* ----------------------------------------------------------------------
     TIM3 Configuration: generate 4 PWM signals with 4 different duty cycles.
     
     In this example TIM3 input clock (TIM3CLK) is set to 2 * APB1 clock (PCLK1), 
     since APB1 prescaler is different from 1.   
+
       TIM3CLK = 2 * PCLK1
       PCLK1 = HCLK / 4 
       => TIM3CLK = HCLK / 2 = SystemCoreClock /2
@@ -40,7 +43,7 @@ void pwm_config(uint16_t pre) {
   PrescalerValue = (uint16_t) ((SystemCoreClock /2) / 720000) - 1;
 
   /* Time base configuration */
-  TIM_TimeBaseStructure.TIM_Period = 665;
+  TIM_TimeBaseStructure.TIM_Period = period;
   TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
@@ -48,7 +51,7 @@ void pwm_config(uint16_t pre) {
   TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
 
   /* PWM1 Mode configuration: Channel1 */
-  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+  TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_Pulse = CCR1_Val;
   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
@@ -86,3 +89,12 @@ void pwm_config(uint16_t pre) {
   /* TIM3 enable counter */
   TIM_Cmd(TIM3, ENABLE);
 }
+
+void pwm_set_DutyCycle1(uint16_t d){
+  TIM_SetCompare1(TIM3,  period * d / 100);
+}
+
+void pwm_set_DutyCycle2(uint16_t d){
+  //CCR2_Val = d ;
+}
+

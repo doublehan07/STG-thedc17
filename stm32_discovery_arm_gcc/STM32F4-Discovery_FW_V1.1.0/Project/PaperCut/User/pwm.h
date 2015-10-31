@@ -5,12 +5,13 @@
 #include "stm32f4xx_conf.h"
 #include "timer.h"
 
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 TIM_OCInitTypeDef  TIM_OCInitStructure;
-
+void pwm_set_DutyCycle1(uint16_t);
 void pwm_config(uint16_t);
 #endif

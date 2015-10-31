@@ -24,7 +24,7 @@ void TIM_Config(void)
   GPIO_Init(GPIOC, &GPIO_InitStructure); 
   
   /* GPIOB Configuration:  TIM3 CH3 (PB0) and TIM3 CH4 (PB1) */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4 | GPIO_Pin_5;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -34,6 +34,6 @@ void TIM_Config(void)
   /* Connect TIM3 pins to AF2 */  
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_TIM3);
   GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_TIM3); 
-  GPIO_PinAFConfig(GPIOB, GPIO_PinSource0, GPIO_AF_TIM3);
-  GPIO_PinAFConfig(GPIOB, GPIO_PinSource1, GPIO_AF_TIM3); 
+  GPIO_PinAFConfig(GPIOB, GPIO_PinSource4, GPIO_AF_TIM3);//tim3 ch1
+  GPIO_PinAFConfig(GPIOB, GPIO_PinSource5, GPIO_AF_TIM3);//tim3 ch2
 }
