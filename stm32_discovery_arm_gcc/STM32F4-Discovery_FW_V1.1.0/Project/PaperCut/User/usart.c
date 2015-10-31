@@ -1,7 +1,31 @@
-
+#include <stm32f4xx.h>
 #include "usart.h"
-#include "strategy.h"
+#include <stdio.h>
 
+#if 1
+#pragma import(__use_no_semihosting)             
+//±ê×¼¿âÐèÒªµÄÖ§³Öº¯Êý                 
+struct __FILE { 
+    int handle; 
+    /* Whatever you require here. If the only file you are using is */ 
+    /* standard output using printf() for debugging, no file handling */ 
+    /* is required. */ 
+}; 
+/* FILE is typedef¡¯ d in stdio.h. */ 
+FILE __stdout;       
+//¶¨Òå_sys_exit()ÒÔ±ÜÃâÊ¹ÓÃ°ëÖ÷»úÄ£Ê½    
+_sys_exit(int x) { 
+    x = x; 
+} 
+//ÖØ¶¨Òåfputcº¯Êý 
+int fputc(int Data, FILE *f){   
+    while(!USART_GetFlagStatus(USART2,USART_FLAG_TXE));   //USART_GetFlagStatus£ºµÃµ½·¢ËÍ×´Ì¬Î»
+                                                          //USART_FLAG_TXE:·¢ËÍ¼Ä´æÆ÷Îª¿Õ 1£ºÎª¿Õ£»0£ºÃ¦×´Ì¬
+    USART_SendData(USART2,Data);                          //·¢ËÍÒ»¸ö×Ö·û
+       
+    return Data;                                          //·µ»ØÒ»¸öÖµ
+}
+#endif 
 
 void USART2_puts(char* s)
 {
@@ -11,6 +35,21 @@ void USART2_puts(char* s)
         s++;
     }
 }
+
+void Usart2Put(uint8_t ch)
+{
+      USART_SendData(USART2, (uint8_t) ch);
+      //Loop until the end of transmission
+      while(USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
+      {
+      }
+}
+uint8_t Usart2Get(void){
+     while ( USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == RESET);
+        return (uint8_t)USART_ReceiveData(USART2);
+}
+
+
 
 void USART2_Configuration(void)
 {
@@ -89,6 +128,22 @@ void USART2_IRQHandler(void)
     }
     //parseReceivedPack();
 }
+
+// #pragma import(__use_no_semihosting)
+// _sys_exit(int x)     //定义_sys_exit()以避免使用半主机模式 
+// { 
+//     x = x; 
+// }   
+// struct __FILE  //标准库需要的支持函数 
+// { 
+// int handle; 
+// }; 
+// /* FILE is typedef’ d in stdio.h. */ 
+// FILE __stdout;
+
+
+
+
 /*******************************************************************************
 * Function Name  : int fputc(int ch, FILE *f)
 * Description    : Retargets the C library printf function to the USART.printfÖØ¶¨Ïò
@@ -96,18 +151,18 @@ void USART2_IRQHandler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-int fputc(int ch)
-{
-  /* Write a character to the USART */
-  USART_SendData(USART2, (u8) ch);
+// int fputc(int ch, FILE *f )
+// {
+//   /* Write a character to the USART */
+//   USART_SendData(USART2, (u8) ch);
 
-  /* Loop until the end of transmission */
-  while(!(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == SET))
-  {
-  }
+//    //Loop until the end of transmission 
+//   while(!(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == SET))
+//   {
+//   }
 
-  return ch;
-}
+//   return ch;
+// }
 
 /*******************************************************************************
 * Function Name  : int fgetc(FILE *f)
@@ -116,14 +171,14 @@ int fputc(int ch)
 * Output         : None
 * Return         : ¶ÁÈ¡µ½µÄ×Ö·û
 *******************************************************************************/
-// int fgetc(FILE *f)
-// {
-//   /* Loop until received a char */
-//   while(!(USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == SET))
-//   {
-//   }
+int fgetc(FILE *f)
+{
+  /* Loop until received a char */
+  while(!(USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == SET))
+  {
+  }
   
-//     /* Read a character from the USART and RETURN */
-//   return (USART_ReceiveData(USART2));
-// }
+    /* Read a character from the USART and RETURN */
+  return (USART_ReceiveData(USART2));
+}
 
