@@ -6,5 +6,6 @@
 
 #include "adc.h"
 
-uint16_t ADC_ConvertedValue;
+
+
 #endif

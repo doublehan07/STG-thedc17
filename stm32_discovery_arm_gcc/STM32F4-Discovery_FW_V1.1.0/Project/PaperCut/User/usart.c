@@ -1,6 +1,7 @@
 #include <stm32f4xx.h>
 #include "usart.h"
 #include <stdio.h>
+#include "strategy.h"
 
 #if 1
 #pragma import(__use_no_semihosting)             
@@ -107,18 +108,26 @@ void USART2_Configuration(void)
 
 void USART2_IRQHandler(void)
 { 
-    unsigned char i; 
+    //unsigned char i; 
+    static char counter = 0;
+    char ReceivePacket[23];
 
     if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
     {               
-        i = USART_ReceiveData(USART2); 
-        USART_SendData(USART2,i); 
-        if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET) 
-        { 
-            USART_ClearITPendingBit(USART2, USART_IT_RXNE);
-        }        
+        // i = USART_ReceiveData(USART2); 
+        // USART_SendData(USART2,i); 
+        // if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET) 
+        // { 
+        //     USART_ClearITPendingBit(USART2, USART_IT_RXNE);
+        // }   
+      ReceivePacket[counter] = USART_ReceiveData(USART2);
+      counter++;
+      if(counter >= 23)
+      {
+        counter = 0;
+        parseReceivedPack(ReceivePacket);
+      }
     }
-
     if(USART_GetFlagStatus(USART2,USART_IT_TC)==SET)
     {
         if(USART_GetITStatus(USART2, USART_IT_TC) != RESET) 
@@ -126,7 +135,6 @@ void USART2_IRQHandler(void)
             USART_ClearITPendingBit(USART2, USART_IT_TC);
         }
     }
-    //parseReceivedPack();
 }
 
 // #pragma import(__use_no_semihosting)

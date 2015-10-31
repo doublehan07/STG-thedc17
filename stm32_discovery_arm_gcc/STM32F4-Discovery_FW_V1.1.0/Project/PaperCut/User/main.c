@@ -25,7 +25,6 @@
 #include "stm32f4xx_it.h"
 #include "stm32f4xx.h"
 //#include "usart_dma.h"
-
 //#include <stdio.h>
 //#include "dma.h"
 //#include "adc.h"  
@@ -87,13 +86,13 @@ int main(void)
   //   }
   //   if(i==0)
   //     i=20;
-  char str[20]={0};
+  //char str[20]={0};
   //itoa(ADC3ConvertedVoltage, str, 10);
   //sprintf( str, "%05X", ADC3ConvertedVoltage );
   // Usart2Put('A');
   // USART2_puts(str);
-  Delay(0x8FFFF);  
-  USART_SendData(USART2,str);      
+  //Delay(0x8FFFF);  
+  USART_SendData(USART2,'A');
   //printf("%s",str);
    //USART2_puts(ADC_ConvertedValue);
    //USART2_puts("ADC_ConvertedValue", ADC_ConvertedValue*3300/4096);
