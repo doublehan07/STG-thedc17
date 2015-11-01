@@ -108,33 +108,40 @@ void USART2_Configuration(void)
 
 void USART2_IRQHandler(void)
 { 
-    //unsigned char i; 
+    unsigned char i; 
     static char counter = 0;
     char ReceivePacket[23];
+	static unsigned char flag1 = 0, flag2 = 0;
 
+	//Receive
     if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
     {               
-        // i = USART_ReceiveData(USART2); 
-        // USART_SendData(USART2,i); 
-        // if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET) 
-        // { 
-        //     USART_ClearITPendingBit(USART2, USART_IT_RXNE);
-        // }   
-      ReceivePacket[counter] = USART_ReceiveData(USART2);
-      counter++;
-      if(counter >= 23)
-      {
-        counter = 0;
-        parseReceivedPack(ReceivePacket);
-      }
-    }
-    if(USART_GetFlagStatus(USART2,USART_IT_TC)==SET)
-    {
-        if(USART_GetITStatus(USART2, USART_IT_TC) != RESET) 
-        { 
-            USART_ClearITPendingBit(USART2, USART_IT_TC);
-        }
-    }
+		if(flag1 == 0 && flag2 == 0)
+			i = USART_ReceiveData(USART2);
+		if (i == '0x0A')
+		{
+			flag1 = 1;
+			flag2 = 1;
+		}
+		if(flag1 == 1 || flag2 == 1)
+		{
+			if (flag1)
+				flag1 = 0;
+			ReceivePacket[counter] = USART_ReceiveData(USART2);
+			counter++;
+			if (counter == 21)
+				flag2 = 0;
+			if (counter >= 23)
+			{
+				counter = 0;
+				if(ReceivePacket[21] == '0x0D' && ReceivePacket[22] == '0x0A')
+					parseReceivedPack(ReceivePacket);
+			}
+		}
+
+		//Send
+		if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET)
+			USART_SendData(USART2, (uint8_t)SendAI);
 }
 
 // #pragma import(__use_no_semihosting)

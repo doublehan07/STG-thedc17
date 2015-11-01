@@ -74,13 +74,15 @@ struct RECEIVE
 
 struct SEND
 {
-	char OurID;
-	char TargetID;
-	char PropID;
+	char OurID : 2;
+	char TargetID : 2;
+	char PropID : 2;
+	char checkD;
+	char checkA;
 };
 
 extern struct RECEIVE ReceiveAI;
 extern struct SEND SendAI;
-extern char ToBeSent[3];
 void parseReceivedPack(char *ReceivePacket);
+void parseSendPack(char OurID, char TargetID, char Prop);
 #endif
