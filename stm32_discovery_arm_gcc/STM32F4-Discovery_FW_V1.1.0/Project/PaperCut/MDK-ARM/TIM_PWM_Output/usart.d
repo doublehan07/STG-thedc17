@@ -1,14 +1,14 @@
 .\tim_pwm_output\usart.o: ..\User\usart.c
-.\tim_pwm_output\usart.o: D:\Keil\ARM\Inc\ST\STM32F4xx\stm32f4xx.h
+.\tim_pwm_output\usart.o: D:\Keil51\ARM\Inc\ST\STM32F4xx\stm32f4xx.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\CMSIS\Include\core_cm4.h
-.\tim_pwm_output\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\tim_pwm_output\usart.o: D:\Keil51\ARM\ARMCC\bin\..\include\stdint.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\CMSIS\Include\core_cmInstr.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\CMSIS\Include\core_cmFunc.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\CMSIS\Include\core_cm4_simd.h
-.\tim_pwm_output\usart.o: D:\Keil\ARM\Inc\ST\STM32F4xx\system_stm32f4xx.h
+.\tim_pwm_output\usart.o: D:\Keil51\ARM\Inc\ST\STM32F4xx\system_stm32f4xx.h
 .\tim_pwm_output\usart.o: ..\User\stm32f4xx_conf.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h
-.\tim_pwm_output\usart.o: D:\Keil\ARM\Inc\ST\STM32F4xx\stm32f4xx.h
+.\tim_pwm_output\usart.o: D:\Keil51\ARM\Inc\ST\STM32F4xx\stm32f4xx.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h
@@ -36,4 +36,4 @@
 .\tim_pwm_output\usart.o: ..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h
 .\tim_pwm_output\usart.o: ..\User\usart.h
 .\tim_pwm_output\usart.o: ..\User\strategy.h
-.\tim_pwm_output\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\tim_pwm_output\usart.o: D:\Keil51\ARM\ARMCC\bin\..\include\stdio.h
