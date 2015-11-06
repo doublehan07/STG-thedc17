@@ -2,7 +2,6 @@
 
 struct RECEIVE ReceiveAI;
 struct SEND SendAI;
-char ToBeSent[3];
 
 uint8_t isFinished = 0 , toBeReceive = 0 , isParsed = 0;
 
