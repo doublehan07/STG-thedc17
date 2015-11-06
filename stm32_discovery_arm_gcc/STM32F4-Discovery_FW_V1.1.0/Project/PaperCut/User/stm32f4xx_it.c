@@ -33,7 +33,8 @@ extern uint8_t isParsed , isFinished , toBeReceive , requestToBeSent;
 char counter, lastReceived , currentReceived;
 extern char ReceivedPacket[23] , toBeParsedPack[23];
 extern char receive_data[32];
-extern struct RECEIVE ReceiveAI;
+extern struct RECEIVE ReceiveAI ;
+extern struct SEND SendAI;
 //extern FunType fp;
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
@@ -239,14 +240,23 @@ void UART5_IRQHandler(void)
 
 void TIM2_IRQHandler(void){
   //TIM_ClearFlag
+	
 	static char if_turn_l = 0, if_turn_r = 0, if_backward = 0;
 	static int counter_l = 0, counter_r = 0, counter_b = 0;
+	if(ReceiveAI.Status != 0x01){
+		motor_sleep();
+		Usart2Put(0x01);
+	}else{
+		motor_wake();
+		Usart2Put(0x02);
+	}
+	
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
 			if(if_turn_l == 1 && !GPIOD->IDR&GPIO_Pin_8)
 			{
 				counter_l++;
-				if(counter_l >= 20000)
+				if(counter_l >= 14000)
 				{
 					if_turn_l = 0;
 					counter_l = 0;
@@ -255,7 +265,7 @@ void TIM2_IRQHandler(void){
 			else if(if_turn_r == 1 && !GPIOD->IDR&GPIO_Pin_9)
 			{
 				counter_r++;
-				if(counter_r >= 20000)
+				if(counter_r >= 14000)
 				{
 					if_turn_r = 0;
 					counter_r = 0;
@@ -266,9 +276,9 @@ void TIM2_IRQHandler(void){
 				counter_b++;
 				if(counter_b == 15000)
 				{
-					motor_turn_left(-500,1600); //1600 is ok
+					motor_turn_left(-500,1000); //1600 is ok
 				}
-				if(counter_b >= 35000)
+				if(counter_b >= 30000)
 				{
 					counter_b = 0;
 					if_backward = 0;
@@ -278,7 +288,7 @@ void TIM2_IRQHandler(void){
       if(GPIOD->IDR&GPIO_Pin_8 && GPIOD->IDR&GPIO_Pin_9) //两边碰线
 			{
         //USART_SendData(USART2,'a');
-				motor_setSpeed(800); //800 is ok
+				motor_setSpeed(1000); //800 is ok
 				if_backward = 1;
 				motor_backward();
       }
@@ -287,20 +297,20 @@ void TIM2_IRQHandler(void){
 			{ 
  				//USART_SendData(USART2,'b');
 				if_turn_r = 1;
-				motor_turn_right(-500,1600); //1500 is ok
+				motor_turn_right(-700,1000); //1500 is ok
       }
    
       else if(GPIOD->IDR&GPIO_Pin_9) //右边碰线
 			{ 
         //USART_SendData(USART2,'c');
 				if_turn_l = 1;
-        motor_turn_left(-500,1600); //1300 is ok
+        motor_turn_left(-700,1000); //1300 is ok
       }
         
       else //没有碰线
 			{ 
         //USART_SendData(USART2,'d');
-				motor_setSpeed(400); //800 is ok
+				motor_setSpeed(750); //800 is ok
 				motor_forward();
       }
   }
@@ -320,6 +330,7 @@ void TIM5_IRQHandler(void){
 		
 				//USART_SendData(USART2, *(uint8_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
 				//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
+		//requestToBeSent=1;
 		isParsed=0;
 		
 		
@@ -331,9 +342,9 @@ void TIM5_IRQHandler(void){
 		for(;i<3;i++){
 			printf("%c",*((uint8_t *)&SendAI+i));
 		}
+		//printf("%s",*(uint8_t *)&SendAI);
 		requestToBeSent = 0;
 	}
-	
 	TIM_ClearITPendingBit(TIM5, TIM_IT_Update);
 }
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

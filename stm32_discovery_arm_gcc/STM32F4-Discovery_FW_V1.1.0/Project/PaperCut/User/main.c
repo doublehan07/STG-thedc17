@@ -43,8 +43,10 @@
   */ 
 
 uint16_t PrescalerValue = 0;
+char comptitionStart = 0;
 extern __IO uint16_t ADC3ConvertedValue ;
 extern __IO uint32_t ADC3ConvertedVoltage ;
+extern struct RECEIVE ReceiveAI ;
 /**
   * @brief  Main programm
   * @param  None
@@ -61,6 +63,8 @@ int main(void)
   //uint16_t adcValue;
   //ADC_Config();
   /* TIM Configuration */
+	
+	
   TIM1_TIM3_Config();
   //pwm_config(PrescalerValue);
 	pwm1_config(PrescalerValue);
@@ -75,11 +79,9 @@ int main(void)
   ADC3_CH12_DMA_Config();
   TIM2_Config();
 	TIM5_Config();
-  // uint8_t txDMABuffer[23]={0x11}; 
-  // uint16_t txDMARear = sizeof(txDMABuffer); 
-  // drv_tx(txDMABuffer txDMARear);
+	//while(comptitionStart==0);
 	motor_config();
-	motor_wake();
+	motor_sleep();
   while (1)
   {
     //USART2_puts("hello");
@@ -89,7 +91,8 @@ int main(void)
     // while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
     // //0~4095 对应到 0~VDD
     // adcValue=ADC_GetConversionValue(ADC3);
-    parseSendPack(ReceiveAI.ID,ReceiveAI.ID,ReceiveAI.PropI);
+    //parseSendPack(ReceiveAI.ID,ReceiveAI.ID,ReceiveAI.PropI);
+		
     //pwm_set_DutyCycle1();
   //   int j = 1000;
   //   while(j--){
@@ -98,7 +101,7 @@ int main(void)
   //   if(i==0)
   //itoa(ADC3ConvertedVoltage, str, 10);
   //sprintf( str, "%05X", ADC3ConvertedVoltage );
-  // Usart2Put('A');
+   //Usart2Put(ReceiveAI.Status);
   // USART2_puts(str);
 
   // USART_SendData(UART5,'a');
