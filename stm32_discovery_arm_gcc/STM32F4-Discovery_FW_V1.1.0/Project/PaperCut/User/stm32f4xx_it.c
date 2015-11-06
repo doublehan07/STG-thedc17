@@ -286,9 +286,7 @@ void TIM5_IRQHandler(void){
       if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET){
         //printf("%d",(uint8_t)SendAI);
 	//USART_SendData(USART2, *(uint32_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
-	//strategy.c的
-
-void parseSendPack(char OurID, char TargetID, char Prop)设置！！
+	//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
       }
   }
 }
