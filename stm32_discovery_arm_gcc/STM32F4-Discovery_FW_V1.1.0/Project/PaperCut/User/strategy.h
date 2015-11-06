@@ -74,9 +74,9 @@ struct RECEIVE //Because 32 received data from low bits, we need to reverse the 
 
 struct SEND
 {
-	char OurID : 2;
+	char PropID : 4;
 	char TargetID : 2;
-	char PropID : 2;
+	char OurID : 2;
 	char checkD;
 	char checkA;
 };

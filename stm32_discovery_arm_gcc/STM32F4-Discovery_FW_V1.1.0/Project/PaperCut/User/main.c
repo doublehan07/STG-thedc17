@@ -83,13 +83,13 @@ int main(void)
   while (1)
   {
     //USART2_puts("hello");
-		motor_backward();
+		//motor_backward();
     //ADC3ConvertedVoltage = ADC3ConvertedValue *3300/0xFFF;
 
     // while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
     // //0~4095 对应到 0~VDD
     // adcValue=ADC_GetConversionValue(ADC3);
-    
+    parseSendPack(ReceiveAI.ID,ReceiveAI.ID,ReceiveAI.PropI);
     //pwm_set_DutyCycle1();
   //   int j = 1000;
   //   while(j--){

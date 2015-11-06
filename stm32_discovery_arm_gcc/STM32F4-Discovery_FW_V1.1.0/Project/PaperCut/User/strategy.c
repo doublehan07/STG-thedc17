@@ -3,7 +3,7 @@
 struct RECEIVE ReceiveAI;
 struct SEND SendAI;
 
-uint8_t isFinished = 0 , toBeReceive = 0 , isParsed = 0;
+uint8_t isFinished = 0 , toBeReceive = 0 , isParsed = 0 , requestToBeSent = 0;
 char ReceivedPacket[23] , toBeParsedPack[23];
 char receive_data[32];
 
@@ -59,4 +59,5 @@ void parseSendPack(char OurID, char TargetID, char Prop)
 	SendAI.PropID = Prop;
 	SendAI.checkD = 0x0D;
 	SendAI.checkA = 0x0A;
+	requestToBeSent = 1;
 }

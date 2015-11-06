@@ -29,10 +29,11 @@
 #include "usart.h"
 #include "strategy.h"
 
-extern uint8_t isParsed , isFinished , toBeReceive;
+extern uint8_t isParsed , isFinished , toBeReceive , requestToBeSent;
 char counter, lastReceived , currentReceived;
 extern char ReceivedPacket[23] , toBeParsedPack[23];
 extern char receive_data[32];
+extern struct RECEIVE ReceiveAI;
 //extern FunType fp;
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
@@ -313,14 +314,25 @@ void TIM5_IRQHandler(void){
 		//printf("h");
 		//printf("h");
       //if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET){
-		int i= 0;
-		for( ;i<32;i++)
-        printf("%c",receive_data[i]);
-				//USART_SendData(USART2, *(uint32_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
+		//int i= 0;
+//		for( ;i<3;i++)
+//        printf("%c",*((uint8_t *)&SendAI+i));
+		
+				//USART_SendData(USART2, *(uint8_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
 				//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
-				isParsed=0;
+		isParsed=0;
+		
+		
       //}
   }
+	
+	if(requestToBeSent == 1){
+		int i = 0 ;
+		for(;i<3;i++){
+			printf("%c",*((uint8_t *)&SendAI+i));
+		}
+		requestToBeSent = 0;
+	}
 	
 	TIM_ClearITPendingBit(TIM5, TIM_IT_Update);
 }
