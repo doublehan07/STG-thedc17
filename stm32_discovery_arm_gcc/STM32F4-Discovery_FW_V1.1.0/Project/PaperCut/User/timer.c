@@ -99,7 +99,7 @@ void TIM5_Config(void){
   TIM_OCInitTypeDef  TIM_OCInitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5,ENABLE);
 
   /* Time base configuration */
   TIM_TimeBaseStructure.TIM_Period = 1000;

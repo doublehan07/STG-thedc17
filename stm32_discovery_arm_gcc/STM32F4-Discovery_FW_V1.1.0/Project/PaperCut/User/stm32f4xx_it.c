@@ -27,12 +27,12 @@
 #include "common.h"
 #include "motor.h"
 #include "usart.h"
-  #include "strategy.h"
+#include "strategy.h"
 
 extern uint8_t isParsed , isFinished , toBeReceive;
-extern char counter, lastReceived , currentReceived;
+char counter, lastReceived , currentReceived;
 extern char ReceivedPacket[23] , toBeParsedPack[23];
-
+extern char receive_data[32];
 //extern FunType fp;
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
@@ -210,7 +210,7 @@ void USART2_IRQHandler(void)
             counter = 0;
             ReceivedPacket[22]=0x0A;
              //if(ReceivedPacket[21] == 0x0D && ReceivedPacket[22] == 0x0A){
-               //parseReceivedPack(ReceivedPacket);
+            //parseReceivedPack(ReceivedPacket);
             
                //USART2_puts(s);
                //USART2_puts("   ");
@@ -219,7 +219,10 @@ void USART2_IRQHandler(void)
             //}
 
             isFinished = 1;
-             printf("%s",ReceivedPacket);
+             //printf("%s",ReceivedPacket);
+						//printf("h");
+						parseReceivedPack(ReceivedPacket);
+						//printf("i");
           }
         }
 			}
@@ -307,12 +310,19 @@ void TIM2_IRQHandler(void){
 void TIM5_IRQHandler(void){
   if(isParsed == 1){
       //Send
-      if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET){
-        //printf("%d",(uint8_t)SendAI);
-	//USART_SendData(USART2, *(uint32_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
-	//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
-      }
+		//printf("h");
+		//printf("h");
+      //if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET){
+		int i= 0;
+		for( ;i<32;i++)
+        printf("%c",receive_data[i]);
+				//USART_SendData(USART2, *(uint32_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
+				//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
+				isParsed=0;
+      //}
   }
+	
+	TIM_ClearITPendingBit(TIM5, TIM_IT_Update);
 }
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 

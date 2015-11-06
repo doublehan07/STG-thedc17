@@ -74,6 +74,7 @@ int main(void)
   NVIC_Config();
   ADC3_CH12_DMA_Config();
   TIM2_Config();
+	TIM5_Config();
   // uint8_t txDMABuffer[23]={0x11}; 
   // uint16_t txDMARear = sizeof(txDMABuffer); 
   // drv_tx(txDMABuffer txDMARear);

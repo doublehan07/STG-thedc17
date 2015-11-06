@@ -39,21 +39,21 @@ enum PROP
 	PROP_NUM
 };
 
-struct RECEIVE
-{
-	char ID : 2;
-	char Status : 2;
-	char WarningA : 1;
-	char WarningB : 1;
-	char WarningC : 1;
+struct RECEIVE //Because 32 received data from low bits, we need to reverse the ranks.
+{	
 	char WarningD : 1;
-
-	char If_track : 2; //enum Prop
-	char Prop_num : 3;
+	char WarningC : 1;
+	char WarningB : 1;
+	char WarningA : 1;
+	char Status : 2;
+	char ID : 2;
+	
 	char Track_cond : 3;
+	char Prop_num : 3;
+	char If_track : 2; //enum Prop
 
-	char PropI : 4;
 	char PropII : 4;
+	char PropI : 4;
 
 	char PeopleA[2]; //{x,y}
 	char PeopleB[2];
@@ -64,8 +64,8 @@ struct RECEIVE
 	char PropC[2];
 	char PropD[2];
 
-	char Source : 4; //May change
 	char Target : 4; //May change
+	char Source : 4; //May change
 
 	char PropNow; //enum Prop
 	char CheckD;

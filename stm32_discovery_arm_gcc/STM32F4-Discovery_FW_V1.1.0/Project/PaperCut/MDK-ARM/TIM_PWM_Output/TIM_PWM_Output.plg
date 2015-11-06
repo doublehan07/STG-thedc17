@@ -1182,3 +1182,282 @@ Erase Done.
 Programming Done.
 Verify OK.
 Application running ...
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(23): warning:  #1-D: last line of file ends without a newline
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=4896 RO-data=424 RW-data=80 ZI-data=1072  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 4 Warning(s).
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=5056 RO-data=424 RW-data=80 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 1 Warning(s).
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5372 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5384 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5136 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling timer.c...
+..\User\timer.c(64): warning:  #177-D: variable "TIM_OCInitStructure" was declared but never referenced
+..\User\timer.c(99): warning:  #177-D: variable "TIM_OCInitStructure" was declared but never referenced
+linking...
+Program Size: Code=5136 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 2 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling main.c...
+..\User\main.c(66): warning:  #223-D: function "pwm1_config" declared implicitly
+..\User\main.c(69): warning:  #223-D: function "UART5_Configuration" declared implicitly
+..\User\main.c(77): warning:  #223-D: function "TIM5_Config" declared implicitly
+..\User\main.c(81): warning:  #223-D: function "motor_config" declared implicitly
+..\User\main.c(82): warning:  #223-D: function "motor_wake" declared implicitly
+..\User\main.c(86): warning:  #223-D: function "motor_backward" declared implicitly
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5268 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 9 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5500 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Build target 'TIM_PWM_Output'
+linking...
+Program Size: Code=5500 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 0 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5512 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5500 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5512 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(51): warning:  #223-D: function "printf" declared implicitly
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(278): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(300): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5512 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 5 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5512 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(51): warning:  #223-D: function "printf" declared implicitly
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5504 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 5 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling strategy.c...
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5476 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 4 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5476 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5484 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Build target 'TIM_PWM_Output'
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5484 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 3 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+linking...
+Program Size: Code=5484 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 0 Warning(s).
+Build target 'TIM_PWM_Output'
+compiling motor.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\motor.c(60): warning:  #223-D: function "ADC1_CH4_CH5_DMA_Config" declared implicitly
+..\User\motor.c(61): warning:  #223-D: function "TIM2_Config" declared implicitly
+compiling strategy.c...
+..\User\strategy.c(62): warning:  #1-D: last line of file ends without a newline
+compiling usart.c...
+compiling main.c...
+..\User\main.c(66): warning:  #223-D: function "pwm1_config" declared implicitly
+..\User\main.c(69): warning:  #223-D: function "UART5_Configuration" declared implicitly
+..\User\main.c(77): warning:  #223-D: function "TIM5_Config" declared implicitly
+..\User\main.c(81): warning:  #223-D: function "motor_config" declared implicitly
+..\User\main.c(82): warning:  #223-D: function "motor_wake" declared implicitly
+..\User\main.c(86): warning:  #223-D: function "motor_backward" declared implicitly
+compiling stm32f4xx_it.c...
+..\User\pid.h(6): warning:  #1-D: last line of file ends without a newline
+..\User\stm32f4xx_it.c(280): warning:  #223-D: function "motor_setSpeed" declared implicitly
+..\User\stm32f4xx_it.c(302): warning:  #223-D: function "motor_setSpeed" declared implicitly
+linking...
+Program Size: Code=5484 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 13 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\STG_thedc17-master\\stm32_discovery_arm_gcc\\STM32F4-Discovery_FW_V1.1.0\\Project\\PaperCut\\MDK-ARM\\TIM_PWM_Output\\TIM_PWM_Output.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+Build target 'TIM_PWM_Output'
+linking...
+Program Size: Code=5484 RO-data=424 RW-data=88 ZI-data=1104  
+".\TIM_PWM_Output\TIM_PWM_Output.axf" - 0 Errors, 0 Warning(s).
