@@ -91,7 +91,7 @@ int main(void)
     // while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
     // //0~4095 对应到 0~VDD
     // adcValue=ADC_GetConversionValue(ADC3);
-    //parseSendPack(ReceiveAI.ID,ReceiveAI.ID,ReceiveAI.PropI);
+    
 		
     //pwm_set_DutyCycle1();
   //   int j = 1000;

@@ -64,10 +64,9 @@ void parseSendPack(char OurID, char TargetID, char Prop)
 
 char getNearestPropID(void){}
 	
-void useProp(char propID){}
-	
-void listenToMaster(void){
+void useProp(char propID){
 	
 }
 	
+
 	

@@ -245,10 +245,10 @@ void TIM2_IRQHandler(void){
 	static int counter_l = 0, counter_r = 0, counter_b = 0;
 	if(ReceiveAI.Status != 0x01){
 		motor_sleep();
-		Usart2Put(0x01);
+		//Usart2Put(0x01);
 	}else{
 		motor_wake();
-		Usart2Put(0x02);
+		//Usart2Put(0x02);
 	}
 	
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
@@ -331,12 +331,15 @@ void TIM5_IRQHandler(void){
 				//USART_SendData(USART2, *(uint8_t *)&SendAI); //这一行将直接发送SendAI，SendAI数据使用
 				//strategy.c的void parseSendPack(char OurID, char TargetID, char Prop)设置！！
 		//requestToBeSent=1;
+		
 		isParsed=0;
-		
-		
+		if(ReceiveAI.Target&(1<<ReceiveAI.ID) && (ReceiveAI.PropNow&0xF0)!=0){
+			if((ReceiveAI.PropI&0x0F) != 0){
+				parseSendPack(ReceiveAI.ID,ReceiveAI.ID,ReceiveAI.PropI);
+			}//we will later judge whether we have successfully used defence prop
+		}
       //}
   }
-	
 	if(requestToBeSent == 1){
 		int i = 0 ;
 		for(;i<3;i++){

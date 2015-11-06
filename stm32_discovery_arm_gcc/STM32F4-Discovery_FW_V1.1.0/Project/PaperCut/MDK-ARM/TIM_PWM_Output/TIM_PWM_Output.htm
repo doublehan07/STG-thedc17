@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\TIM_PWM_Output\TIM_PWM_Output.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\TIM_PWM_Output\TIM_PWM_Output.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Sat Nov 07 04:42:42 2015
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Sat Nov 07 06:24:05 2015
 <BR><P>
 <H3>Maximum Stack Usage =        180 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -582,7 +582,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Config
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Configuration
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Configuration
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
 </UL>
 
@@ -608,7 +608,7 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Configuration
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Configuration
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_TIM3_Config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_config
@@ -671,23 +671,22 @@ Global Symbols
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_config
 </UL>
 
-<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, stm32f4xx_it.o(i.TIM2_IRQHandler))
+<P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, stm32f4xx_it.o(i.TIM2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIM2_IRQHandler &rArr; motor_turn_right
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2Put
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_wake
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_sleep
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_setSpeed
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_setSpeed
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
 </UL>
-<P><STRONG><a name="[88]"></a>TIM5_Config</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, timer.o(i.TIM5_Config))
+<P><STRONG><a name="[87]"></a>TIM5_Config</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, timer.o(i.TIM5_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = TIM5_Config &rArr; NVIC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
@@ -699,10 +698,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3c]"></a>TIM5_IRQHandler</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, stm32f4xx_it.o(i.TIM5_IRQHandler))
+<P><STRONG><a name="[3c]"></a>TIM5_IRQHandler</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, stm32f4xx_it.o(i.TIM5_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIM5_IRQHandler &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseSendPack
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
@@ -711,13 +711,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm1_config
 </UL>
 
-<P><STRONG><a name="[87]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ClearITPendingBit))
+<P><STRONG><a name="[86]"></a>TIM_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ClearITPendingBit))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_IRQHandler
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
 <P><STRONG><a name="[7d]"></a>TIM_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm1_config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
 </UL>
@@ -726,12 +726,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm1_config
 </UL>
 
-<P><STRONG><a name="[81]"></a>TIM_GetITStatus</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_GetITStatus))
+<P><STRONG><a name="[80]"></a>TIM_GetITStatus</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_GetITStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
 <P><STRONG><a name="[7c]"></a>TIM_ITConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
 </UL>
 
@@ -760,7 +760,7 @@ Global Symbols
 <P><STRONG><a name="[7b]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, stm32f4xx_tim.o(i.TIM_TimeBaseInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = TIM_TimeBaseInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm1_config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
 </UL>
@@ -817,7 +817,6 @@ Global Symbols
 <P><STRONG><a name="[8f]"></a>USART_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_GetFlagStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2Put
 </UL>
 
 <P><STRONG><a name="[8c]"></a>USART_ITConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
@@ -840,9 +839,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[93]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_SendData))
+<P><STRONG><a name="[95]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_SendData))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart2Put
 </UL>
 
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
@@ -852,17 +850,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f4xx.o(RESET)
 </UL>
-<P><STRONG><a name="[80]"></a>Usart2Put</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, usart.o(i.Usart2Put))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Usart2Put
-</UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
-</UL>
-<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
-</UL>
-
-<P><STRONG><a name="[94]"></a>__0printf$2</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[93]"></a>__0printf$2</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[ad]"></a>__1printf$2</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf2.o(i.__0printf$2), UNUSED)
@@ -882,7 +871,7 @@ Global Symbols
 <P><STRONG><a name="[5f]"></a>fputc</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, usart.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf2.o(i.__0printf$2)
@@ -896,7 +885,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC3_CH12_DMA_Config
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Configuration
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Configuration
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Config
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM1_TIM3_Config
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm1_config
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_Config
@@ -907,7 +896,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry8.o(.ARM.Collect$$$$00000009)
 </UL>
-<P><STRONG><a name="[84]"></a>motor_backward</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.motor_backward))
+<P><STRONG><a name="[83]"></a>motor_backward</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.motor_backward))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = motor_backward
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_backward
@@ -929,7 +918,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[86]"></a>motor_forward</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.motor_forward))
+<P><STRONG><a name="[85]"></a>motor_forward</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motor.o(i.motor_forward))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = motor_forward
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_forward
@@ -941,34 +930,34 @@ Global Symbols
 <P><STRONG><a name="[9a]"></a>motor_left_backward</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, motor.o(i.motor_left_backward))
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
 </UL>
 
 <P><STRONG><a name="[9c]"></a>motor_left_forward</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, motor.o(i.motor_left_forward))
 <BR><BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
 </UL>
 
 <P><STRONG><a name="[9b]"></a>motor_right_backward</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, motor.o(i.motor_right_backward))
 <BR><BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_backward
 </UL>
 
 <P><STRONG><a name="[9d]"></a>motor_right_forward</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, motor.o(i.motor_right_forward))
 <BR><BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_right
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_turn_left
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_forward
 </UL>
 
-<P><STRONG><a name="[83]"></a>motor_setSpeed</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, motor.o(i.motor_setSpeed))
+<P><STRONG><a name="[82]"></a>motor_setSpeed</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, motor.o(i.motor_setSpeed))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
@@ -981,7 +970,7 @@ Global Symbols
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[82]"></a>motor_turn_left</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, motor.o(i.motor_turn_left))
+<P><STRONG><a name="[81]"></a>motor_turn_left</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, motor.o(i.motor_turn_left))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = motor_turn_left
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_forward
@@ -991,7 +980,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[85]"></a>motor_turn_right</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, motor.o(i.motor_turn_right))
+<P><STRONG><a name="[84]"></a>motor_turn_right</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, motor.o(i.motor_turn_right))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = motor_turn_right
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_right_forward
@@ -1017,6 +1006,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 </UL>
 
+<P><STRONG><a name="[88]"></a>parseSendPack</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, strategy.o(i.parseSendPack))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = parseSendPack
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_IRQHandler
+</UL>
+
 <P><STRONG><a name="[96]"></a>pwm1_config</STRONG> (Thumb, 158 bytes, Stack size 56 bytes, pwm.o(i.pwm1_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = pwm1_config &rArr; TIM_OC3Init
 </UL>
@@ -1039,8 +1034,8 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[95]"></a>_printf_core</STRONG> (Thumb, 208 bytes, Stack size 40 bytes, printf2.o(i._printf_core), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$2
+<P><STRONG><a name="[94]"></a>_printf_core</STRONG> (Thumb, 208 bytes, Stack size 40 bytes, printf2.o(i._printf_core), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$2
 </UL>
 <P>
 <H3>
