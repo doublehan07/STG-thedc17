@@ -1,4 +1,4 @@
-﻿/**
+/**
   ******************************************************************************
   * @file    TIM_PWM_Output/stm32f4xx_it.c 
   * @author  MCD Application Team
@@ -30,6 +30,9 @@
   #include "strategy.h"
 
 extern uint8_t isParsed , isFinished , toBeReceive;
+extern char counter, lastReceived , currentReceived;
+extern char ReceivedPacket[23] , toBeParsedPack[23];
+
 //extern FunType fp;
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
@@ -166,40 +169,61 @@ void EXTI9_5_IRQHandler(void)/*{{{*/
 
 void USART2_IRQHandler(void)
 { 
-    unsigned char i; 
-    static char counter = 0;
-    char ReceivedPacket[23];
 
-  //Receive
-    if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
-    {               
-      if(isFinished == 0 && toBeReceive == 0)//所有数据不可靠
-        i = USART_ReceiveData(USART2);
-      if (i == 0x0A)
+  if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
+    {   
+      //USART_ITConfig(USART2, USART_IT_RXNE, DISABLE);        
+      lastReceived = currentReceived ;
+      currentReceived = USART_ReceiveData(USART2);
+      
+      // if(isFinished == 0 && toBeReceive == 0){
+
+      // }//所有数据不可靠
+        
+      if (currentReceived == 0x0A && lastReceived == 0x0D)
       {
         isFinished = 1;//看到结尾符
         toBeReceive = 1;//正在接收数据
+        //counter=0;
+        //Usart2Put(currentReceived);
       }
-      if(isFinished == 1 || toBeReceive == 1)
+
+      if(toBeReceive == 1)
       {
-        if (isFinished)
+        //Usart2Put(currentReceived);
+        if(isFinished){
           isFinished = 0;
-        ReceivedPacket[counter] = USART_ReceiveData(USART2);
-        counter++;
-        if (counter == 21)
-        {
-          toBeReceive = 0;
+          //return ;
+        }else{
+          ReceivedPacket[counter] = currentReceived;
+          
           counter++;
-          ReceivedPacket[counter] = 0x0A;
+          // if (counter == 21)
+          // {
+          //   toBeReceive = 0;
+          //   counter++;
+          //   ReceivedPacket[counter] = 0x0A;
+          // }
+          if (counter == 22)
+          {
+            toBeReceive = 0;
+            counter = 0;
+            ReceivedPacket[22]=0x0A;
+             //if(ReceivedPacket[21] == 0x0D && ReceivedPacket[22] == 0x0A){
+               //parseReceivedPack(ReceivedPacket);
+            
+               //USART2_puts(s);
+               //USART2_puts("   ");
+            // for( ; i<23 ; i++){
+              //USART_SendData(USART2,ReceivedPacket[i]);
+            //}
+
+            isFinished = 1;
+             printf("%s",ReceivedPacket);
+          }
         }
-        if (counter >= 22)
-        {
-          counter = 0;
-          if(ReceivedPacket[21] == 0x0D && ReceivedPacket[22] == 0x0A)
-            parseReceivedPack(ReceivedPacket);
-        }
-      }       
-    }
+			}
+		}
 }
 
 

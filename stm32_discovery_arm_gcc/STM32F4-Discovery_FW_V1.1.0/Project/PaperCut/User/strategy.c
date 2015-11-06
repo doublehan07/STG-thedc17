@@ -4,6 +4,8 @@ struct RECEIVE ReceiveAI;
 struct SEND SendAI;
 
 uint8_t isFinished = 0 , toBeReceive = 0 , isParsed = 0;
+char counter, lastReceived , currentReceived;
+char ReceivedPacket[23] , toBeParsedPack[23];
 
 void parseReceivedPack(char *ReceivePacket)
 {
