@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 #STG_thedc17
 
-Updated by haldak, 10/30/2015, 4:55am
+master分支已经维护，禁止使用git push --force！
+
+Updated by haldak, 11/06/2015, 1:55pm
 大家加油呀~
 
 .md文件支持Markdown语法，有需要可以参考这个：http://wowubuntu.com/markdown/#list
@@ -16,8 +17,8 @@ Updated by haldak, 10/30/2015, 4:55am
 ## 任务清单
 - [ ] 11.07(Sat), 参加预审，目标A档前两名
 - [ ] 11.06(Fri), 测试通信逻辑是否可用，完成预审要求
-- [ ] 11.04(Wed), 完善小车运行和道具寻找、道具使用逻辑
-- [ ] 11.04(Wed), 测试红外功能
+- [ ] 11.06(Fri), 完善小车运行和道具寻找、道具使用逻辑
+- [x] 11.05(Thur), 测试红外功能
 - [x] 11.02(Mon), 测试Vpropi是否好用
 - [x] 11.01(Sun), 通信logic完善接收（传输校验），发送
 - [x] 11.01(Sun), 调出红外循迹
