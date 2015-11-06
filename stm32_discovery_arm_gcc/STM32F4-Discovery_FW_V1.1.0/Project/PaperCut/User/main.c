@@ -27,26 +27,24 @@
 //#include "usart_dma.h"
 //#include <stdio.h>
 //#include "dma.h"
-//#include "adc.h"  
+//m#include "adc.h"  
 #include "usart.h"
 #include "timer.h"
 #include "pwm.h"
+#include "adc_dma.h"
 #include "infrared.h"
-
+#include "common.h"
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
   */
-#define ADC3_DR_ADDRESS     ((uint32_t)0x4001224C)
+
 /** @addtogroup TIM_PWM_Output
   * @{
   */ 
 
 uint16_t PrescalerValue = 0;
-void Delay(vu32);
-void ADC3_CH12_DMA_Config(void);
-__IO uint16_t ADC3ConvertedValue = 0;
-__IO uint32_t ADC3ConvertedVoltage = 0;
-uint8_t status;
+extern __IO uint16_t ADC3ConvertedValue ;
+extern __IO uint32_t ADC3ConvertedVoltage ;
 /**
   * @brief  Main programm
   * @param  None
@@ -63,21 +61,30 @@ int main(void)
   //uint16_t adcValue;
   //ADC_Config();
   /* TIM Configuration */
-  TIM_Config();
-  pwm_config(PrescalerValue);
+  TIM1_TIM3_Config();
+  //pwm_config(PrescalerValue);
+	pwm1_config(PrescalerValue);
   //init_uart();
   USART2_Configuration();
+  UART5_Configuration();
+  //ADC3_CH12_DMA_Config();
+  ADC1_CH4_CH5_DMA_Config();
+  ADC_SoftwareStartConv(ADC1);
+  Infrared_GPIO_Config();
+  NVIC_Config();
   ADC3_CH12_DMA_Config();
-  ADC_SoftwareStartConv(ADC3);
+  TIM2_Config();
   // uint8_t txDMABuffer[23]={0x11}; 
   // uint16_t txDMARear = sizeof(txDMABuffer); 
   // drv_tx(txDMABuffer txDMARear);
-  
+	motor_config();
+	motor_wake();
   while (1)
   {
     //USART2_puts("hello");
-    ADC3ConvertedVoltage = ADC3ConvertedValue *3300/0xFFF;
-    //ADC_SoftwareStartConv(ADC3);
+		motor_backward();
+    //ADC3ConvertedVoltage = ADC3ConvertedValue *3300/0xFFF;
+
     // while(RESET ==ADC_GetFlagStatus(ADC3,ADC_FLAG_EOC));
     // //0~4095 对应到 0~VDD
     // adcValue=ADC_GetConversionValue(ADC3);
@@ -88,100 +95,20 @@ int main(void)
   //     pwm_set_DutyCycle1(i);
   //   }
   //   if(i==0)
-  //     i=20;
-  //char str[20]={0};
   //itoa(ADC3ConvertedVoltage, str, 10);
   //sprintf( str, "%05X", ADC3ConvertedVoltage );
   // Usart2Put('A');
   // USART2_puts(str);
-  Delay(0x8FFFF);  
-  //USART_SendData(USART2,'A');
-	 //status = GPIOD->IDR&GPIO_Pin_8;
-//	 if((GPIOC->IDR&(1<<0))==(1<<0))
-//		 printf("gpiod8 high");
-//	 else
-//		 printf("gpiod8 low");
-  printf("%d\n",GPIO_ReadInputDataBit (GPIOA,8));
-   //USART2_puts(ADC_ConvertedValue);
-   //USART2_puts("ADC_ConvertedValue", ADC_ConvertedValue*3300/4096);
+
+  // USART_SendData(UART5,'a');
+  // USART_SendData(USART2,'b');  
+  //printf("system_stm32f4xx");
+  Delay(0xBFFFF);  
+    //printf("%d\n",ADC3ConvertedVoltage);
    }
 }
 
-/*****************************************************
-函数: void Delay(vu32 nCount)
-功能: 延时指定时间
-参数: vu32 nCount 延时指定时间
-返回: 无
-******************************************************/
-void Delay(vu32 nCount)
-{
-  for(; nCount != 0; nCount--);
-}
 
-void ADC3_CH12_DMA_Config(void)
-{
-  ADC_InitTypeDef       ADC_InitStructure;
-  ADC_CommonInitTypeDef ADC_CommonInitStructure;
-  DMA_InitTypeDef       DMA_InitStructure;
-  GPIO_InitTypeDef      GPIO_InitStructure;
-
-  /* Enable ADC3, DMA2 and GPIO clocks ****************************************/
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2 | RCC_AHB1Periph_GPIOC, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC3, ENABLE);
-
-  /* DMA2 Stream0 channel0 configuration **************************************/
-  DMA_InitStructure.DMA_Channel = DMA_Channel_2;  
-  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)ADC3_DR_ADDRESS;
-  DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)&ADC3ConvertedValue;
-  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
-  DMA_InitStructure.DMA_BufferSize = 1;
-  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-  DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Disable;
-  DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
-  DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
-  DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
-  DMA_InitStructure.DMA_Priority = DMA_Priority_High;
-  DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;         
-  DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_HalfFull;
-  DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
-  DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-  DMA_Init(DMA2_Stream0, &DMA_InitStructure);
-  DMA_Cmd(DMA2_Stream0, ENABLE);
-
-  /* Configure ADC3 Channel12 pin as analog input ******************************/
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);
-
-  /* ADC Common Init **********************************************************/
-  ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent;
-  ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2;
-  ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
-  ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
-  ADC_CommonInit(&ADC_CommonInitStructure);
-
-  /* ADC3 Init ****************************************************************/
-  ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
-  ADC_InitStructure.ADC_ScanConvMode = DISABLE;
-  ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
-  ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
-  ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
-  ADC_InitStructure.ADC_NbrOfConversion = 1;
-  ADC_Init(ADC3, &ADC_InitStructure);
-
-  /* ADC3 regular channel12 configuration *************************************/
-  ADC_RegularChannelConfig(ADC3, ADC_Channel_12, 1, ADC_SampleTime_3Cycles);
-
- /* Enable DMA request after last transfer (Single-ADC mode) */
-  ADC_DMARequestAfterLastTransferCmd(ADC3, ENABLE);
-
-  /* Enable ADC3 DMA */
-  ADC_DMACmd(ADC3, ENABLE);
-
-  /* Enable ADC3 */
-  ADC_Cmd(ADC3, ENABLE);
-}
 
 
 #ifdef  USE_FULL_ASSERT

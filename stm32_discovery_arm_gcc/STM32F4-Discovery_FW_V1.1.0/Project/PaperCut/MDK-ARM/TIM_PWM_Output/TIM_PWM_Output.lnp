@@ -8,6 +8,8 @@
 ".\tim_pwm_output\main.o"
 ".\tim_pwm_output\system_stm32f4xx.o"
 ".\tim_pwm_output\stm32f4xx_it.o"
+".\tim_pwm_output\adc_dma.o"
+".\tim_pwm_output\common.o"
 ".\tim_pwm_output\infrared.o"
 ".\tim_pwm_output\stm32f4_discovery.o"
 ".\tim_pwm_output\stm32f4xx_adc.o"

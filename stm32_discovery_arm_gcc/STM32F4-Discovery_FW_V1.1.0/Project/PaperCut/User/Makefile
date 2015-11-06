@@ -7,8 +7,9 @@ SRCS=main.c system_stm32f4xx.c stm32f4xx_it.c
 # Library modules
 SRCS += stm32f4xx_gpio.c stm32f4xx_rcc.c stm32f4xx_tim.c stm32f4xx_usart.c 
 SRCS += misc.c stm32f4xx_flash.c stm32f4xx_exti.c stm32f4xx_dma.c stm32f4xx_adc.c 
+SRCS += stm32f4xx_syscfg.c adc_dma.c common.c pid.c
 # User Defined modules 
-SRCS += timer.c pwm.c motor.c usart.c strategy.c adc.c dma.c
+SRCS += timer.c pwm.c motor.c usart.c strategy.c adc.c infrared.c
 #SRCS += usart_dma.c
 
 # Binaries will be generated with this name (.elf, .bin, .hex, etc)

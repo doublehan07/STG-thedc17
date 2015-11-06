@@ -2,10 +2,14 @@
 
 struct RECEIVE ReceiveAI;
 struct SEND SendAI;
+char ToBeSent[3];
+
+uint8_t isFinished = 0 , toBeReceive = 0 , isParsed = 0;
 
 void parseReceivedPack(char *ReceivePacket)
 {
 	ReceiveAI = *(struct RECEIVE *)ReceivePacket;
+	isParsed = 1 ;
 }
 
 void parseSendPack(char OurID, char TargetID, char Prop)

@@ -1,8 +1,7 @@
-#include <stm32f4xx.h>
 #include "usart.h"
-#include <stdio.h>
-#include "strategy.h"
 
+
+//这段话是用来printf重定向的 然而我并不知道有什么用
 #if 1
 #pragma import(__use_no_semihosting)             
 //±ê×¼¿âÐèÒªµÄÖ§³Öº¯Êý                 
@@ -28,27 +27,7 @@ int fputc(int Data, FILE *f){
 }
 #endif 
 
-void USART2_puts(char* s)
-{
-    while(*s) {
-        while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
-        USART_SendData(USART2, *s);
-        s++;
-    }
-}
 
-void Usart2Put(uint8_t ch)
-{
-      USART_SendData(USART2, (uint8_t) ch);
-      //Loop until the end of transmission
-      while(USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
-      {
-      }
-}
-uint8_t Usart2Get(void){
-     while ( USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == RESET);
-        return (uint8_t)USART_ReceiveData(USART2);
-}
 
 
 
@@ -61,19 +40,19 @@ void USART2_Configuration(void)
     /* USART1 clock enable */
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
     /* GPIOA clock enable */
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
     
     /*-------------------------- GPIO Configuration ----------------------------*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
     
     /* Connect USART pins to AF */
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);   // USART1_TX
-    GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);  // USART1_RX
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_USART2);   // USART2_TX
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2);  // USART2_RX
     
     
     /* USARTx configuration ------------------------------------------------------*/
@@ -106,57 +85,116 @@ void USART2_Configuration(void)
     NVIC_Init(&NVIC_InitStructure); 
 }
 
-void USART2_IRQHandler(void)
-{ 
-    unsigned char i; 
-    static char counter = 0;
-    char ReceivePacket[23];
-	static unsigned char flag1 = 0, flag2 = 0;
+void UART5_Configuration(void)
+{
+    USART_InitTypeDef USART_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    /* --------------------------- System Clocks Configuration -----------------*/
+    /* USART1 clock enable */
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE);
+    /* GPIOA clock enable */
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOD, ENABLE);
+    
+    /*-------------------------- GPIO Configuration ----------------------------*/
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 ;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-	//Receive
-    if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
-    {               
-		if(flag1 == 0 && flag2 == 0)
-			i = USART_ReceiveData(USART2);
-		if (i == '0x0A')
-		{
-			flag1 = 1;
-			flag2 = 1;
-		}
-		if(flag1 == 1 || flag2 == 1)
-		{
-			if (flag1)
-				flag1 = 0;
-			ReceivePacket[counter] = USART_ReceiveData(USART2);
-			counter++;
-			if (counter == 21)
-				flag2 = 0;
-			if (counter >= 23)
-			{
-				counter = 0;
-				if(ReceivePacket[21] == '0x0D' && ReceivePacket[22] == '0x0A')
-					parseReceivedPack(ReceivePacket);
-			}
-		}
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 ;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    
+    /* Connect USART pins to AF */
+    GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5);   // USART1_TX
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_UART5);  // USART1_RX
+    
+    
+    /* USARTx configuration ------------------------------------------------------*/
+    /* USARTx configured as follow:
+     *  - BaudRate = 9600 baud
+     *  - Word Length = 8 Bits
+     *  - One Stop Bit
+     *  - No parity
+     *  - Hardware flow control disabled (RTS and CTS signals)
+     *  - Receive and transmit enabled
+     */
+    USART_InitStructure.USART_BaudRate = 115200;
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits = USART_StopBits_1;
+    USART_InitStructure.USART_Parity = USART_Parity_No;
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    USART_Init(UART5, &USART_InitStructure);
+    USART_ITConfig(UART5, USART_IT_RXNE, ENABLE);//使能接受中断，在接受移位 寄存器中有数据是产生
+    //USART_ITConfig(USART1, USART_IT_TXE, ENABLE);//使能发送中断，在发送完数据 后产生。
+    USART_Cmd(UART5, ENABLE);
 
-		//Send
-		if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET)
-			USART_SendData(USART2, (uint8_t)SendAI);
+    
+
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);     
+    NVIC_InitStructure.NVIC_IRQChannel = UART5_IRQn; 
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority= 3;    
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;  
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; 
+    NVIC_Init(&NVIC_InitStructure); 
 }
 
-// #pragma import(__use_no_semihosting)
-// _sys_exit(int x)     //定义_sys_exit()以避免使用半主机模式 
-// { 
-//     x = x; 
-// }   
-// struct __FILE  //标准库需要的支持函数 
-// { 
-// int handle; 
-// }; 
-// /* FILE is typedef’ d in stdio.h. */ 
-// FILE __stdout;
+
+void USART2_puts(char* s)
+{
+    while(*s) {
+        while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+        USART_SendData(USART2, *s);
+        s++;
+    }
+}
+
+void Usart2Put(uint8_t ch)
+{
+      USART_SendData(USART2, (uint8_t) ch);
+      //Loop until the end of transmission
+      while(USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
+      {
+      }
+}
+
+uint8_t Usart2Get(void)
+{
+     while ( USART_GetFlagStatus(USART2, USART_FLAG_RXNE) == RESET);
+        return (uint8_t)USART_ReceiveData(USART2);
+}
 
 
+
+void USART5_puts(char* s)
+{
+    while(*s) {
+        while(USART_GetFlagStatus(UART5, USART_FLAG_TXE) == RESET);
+        USART_SendData(UART5, *s);
+        s++;
+    }
+}
+
+void Usart5Put(uint8_t ch)
+{
+      USART_SendData(UART5, (uint8_t) ch);
+      //Loop until the end of transmission
+      while(USART_GetFlagStatus(UART5, USART_FLAG_TC) == RESET)
+      {
+      }
+}
+
+uint8_t Usart5Get(void){
+     while ( USART_GetFlagStatus(UART5, USART_FLAG_RXNE) == RESET);
+        return (uint8_t)USART_ReceiveData(UART5);
+}
 
 
 /*******************************************************************************

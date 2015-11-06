@@ -24,6 +24,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
 #include "stm32f4_discovery.h"
+#include "common.h"
+#include "motor.h"
+#include "usart.h"
+  #include "strategy.h"
+
+extern uint8_t isParsed , isFinished , toBeReceive;
+//extern FunType fp;
 /** @addtogroup STM32F4_Discovery_Peripheral_Examples
   * @{
   */
@@ -148,10 +155,139 @@ void SysTick_Handler(void)
 {
 }*/
 
+//检测在黑线还是白线，驱动电机
+void EXTI9_5_IRQHandler(void)/*{{{*/
+{
+
+  
+    //Delay(0xFFFFFF);  
+  
+}/*}}}*/
+
+void USART2_IRQHandler(void)
+{ 
+    unsigned char i; 
+    static char counter = 0;
+    char ReceivedPacket[23];
+
+  //Receive
+    if(USART_GetFlagStatus(USART2,USART_IT_RXNE)==SET) 
+    {               
+      if(isFinished == 0 && toBeReceive == 0)//所有数据不可靠
+        i = USART_ReceiveData(USART2);
+      if (i == 0x0A)
+      {
+        isFinished = 1;//看到结尾符
+        toBeReceive = 1;//正在接收数据
+      }
+      if(isFinished == 1 || toBeReceive == 1)
+      {
+        if (isFinished)
+          isFinished = 0;
+        ReceivedPacket[counter] = USART_ReceiveData(USART2);
+        counter++;
+        if (counter == 21)
+        {
+          toBeReceive = 0;
+          counter++;
+          ReceivedPacket[counter] = 0x0A;
+        }
+        if (counter >= 22)
+        {
+          counter = 0;
+          if(ReceivedPacket[21] == 0x0D && ReceivedPacket[22] == 0x0A)
+            parseReceivedPack(ReceivedPacket);
+        }
+      }       
+    }
+}
 
 
+void UART5_IRQHandler(void)
+{
+
+}
 
 
+void TIM2_IRQHandler(void){
+  //TIM_ClearFlag
+	static char if_turn_l = 0, if_turn_r = 0, if_backward = 0;
+	static int counter_l = 0, counter_r = 0, counter_b = 0;
+	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+	{
+			if(if_turn_l == 1 && !GPIOD->IDR&GPIO_Pin_8)
+			{
+				counter_l++;
+				if(counter_l >= 20000)
+				{
+					if_turn_l = 0;
+					counter_l = 0;
+				}
+			}
+			else if(if_turn_r == 1 && !GPIOD->IDR&GPIO_Pin_9)
+			{
+				counter_r++;
+				if(counter_r >= 20000)
+				{
+					if_turn_r = 0;
+					counter_r = 0;
+				}
+			}
+			else if(if_backward == 1) //May cause problem. Ban reverse runnning! - by haldak
+			{
+				counter_b++;
+				if(counter_b == 15000)
+				{
+					motor_turn_left(-500,1600); //1600 is ok
+				}
+				if(counter_b >= 35000)
+				{
+					counter_b = 0;
+					if_backward = 0;
+		  	}
+	  	}
+		
+      if(GPIOD->IDR&GPIO_Pin_8 && GPIOD->IDR&GPIO_Pin_9) //两边碰线
+			{
+        //USART_SendData(USART2,'a');
+				motor_setSpeed(800); //800 is ok
+				if_backward = 1;
+				motor_backward();
+      }
+        
+      else if(GPIOD->IDR&GPIO_Pin_8) //左边碰线
+			{ 
+ 				//USART_SendData(USART2,'b');
+				if_turn_r = 1;
+				motor_turn_right(-500,1600); //1500 is ok
+      }
+   
+      else if(GPIOD->IDR&GPIO_Pin_9) //右边碰线
+			{ 
+        //USART_SendData(USART2,'c');
+				if_turn_l = 1;
+        motor_turn_left(-500,1600); //1300 is ok
+      }
+        
+      else //没有碰线
+			{ 
+        //USART_SendData(USART2,'d');
+				motor_setSpeed(400); //800 is ok
+				motor_forward();
+      }
+  }
+  TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+}
+
+
+void TIM5_IRQHandler(void){
+  if(isParsed == 1){
+      //Send
+      if (USART_GetFlagStatus(USART2, USART_IT_TC) == SET){
+        //printf("%d",(uint8_t)SendAI);
+      }
+  }
+}
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
 
 /**
