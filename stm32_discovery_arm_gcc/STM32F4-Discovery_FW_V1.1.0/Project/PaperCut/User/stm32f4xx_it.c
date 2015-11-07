@@ -243,13 +243,28 @@ void TIM2_IRQHandler(void){
 	
 	static char if_turn_l = 0, if_turn_r = 0, if_backward = 0;
 	static int counter_l = 0, counter_r = 0, counter_b = 0;
-	if(ReceiveAI.Status != 0x01){
+	static char debug = 0;
+	
+	if(ReceiveAI.Status != 0x01)
+	{
 		motor_sleep();
-		//Usart2Put(0x01);
-	}else{
-		motor_wake();
-		//Usart2Put(0x02);
 	}
+	else
+	{
+		motor_wake();
+		
+		//turn right to get prop
+		if(debug == 0)
+		{
+			motor_turn_right(-600,1000); //1500 is ok
+			Delay(0xFFFF00);
+			motor_forward();
+			motor_setSpeed(800);
+			Delay(0xFFFF00);
+			debug++;
+		}
+	}
+
 	
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
 	{
@@ -297,20 +312,20 @@ void TIM2_IRQHandler(void){
 			{ 
  				//USART_SendData(USART2,'b');
 				if_turn_r = 1;
-				motor_turn_right(-700,1000); //1500 is ok
+				motor_turn_right(-600,1000); //1500 is ok
       }
    
       else if(GPIOD->IDR&GPIO_Pin_9) //右边碰线
 			{ 
         //USART_SendData(USART2,'c');
 				if_turn_l = 1;
-        motor_turn_left(-700,1000); //1300 is ok
+        motor_turn_left(-600,1000); //1300 is ok
       }
         
       else //没有碰线
 			{ 
         //USART_SendData(USART2,'d');
-				motor_setSpeed(750); //800 is ok
+				motor_setSpeed(800); //800 is ok
 				motor_forward();
       }
   }

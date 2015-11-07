@@ -63,16 +63,16 @@ void motor_config(){
 
 //调节占空比控制电机速度,可供上层函数调用
 void motor_setSpeed(uint32_t speed) {
-  TIM1->CCR1= speed ;
-  TIM1->CCR2= speed ;
+  TIM1->CCR1= speed > 1000 ? 1000 : speed;
+  TIM1->CCR2= speed > 1000 ? 1000 : speed;
 }
 
 void motor_setLeftSpeed(uint32_t speed) {
-  TIM1->CCR1 = speed ;
+  TIM1->CCR1 = speed > 1000 ? 1000 : speed;
 
 }
 void motor_setRightSpeed(uint32_t speed) {
-  TIM1->CCR2 = speed ;
+  TIM1->CCR2 = speed > 1000 ? 1000 : speed;
 
 }
 

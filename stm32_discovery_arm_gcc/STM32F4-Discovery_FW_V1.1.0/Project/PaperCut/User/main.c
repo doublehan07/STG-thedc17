@@ -71,7 +71,7 @@ int main(void)
   //init_uart();
   USART2_Configuration();
   UART5_Configuration();
-  //ADC3_CH12_DMA_Config();
+  //ADC3_CH12_DMxccA_Config();
   ADC1_CH4_CH5_DMA_Config();
   ADC_SoftwareStartConv(ADC1);
   Infrared_GPIO_Config();
@@ -82,6 +82,7 @@ int main(void)
 	//while(comptitionStart==0);
 	motor_config();
 	motor_sleep();
+	//motor_wake();
   while (1)
   {
     //USART2_puts("hello");
