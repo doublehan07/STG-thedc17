@@ -2,9 +2,9 @@
 
 #这是预审(Nov.7)用的代码
 
-#开工啦！！！！！！```决赛倒计时 7 天```
+##开工啦！！！！！！```决赛倒计时 7 天```
 
-#修改的速度防止溢出代码
+##修改的速度防止溢出代码
 <pre><code>    //调节占空比控制电机速度,可供上层函数调用
     void motor_setSpeed(uint32_t speed) {
       TIM1->CCR1= speed > 1000 ? 1000 : speed;
@@ -18,7 +18,7 @@
       TIM1->CCR2 = speed > 1000 ? 1000 : speed;
     }</code></pre>
 
-#修改的状态机预审版本代码
+##修改的状态机预审版本代码
 <pre><code>    void TIM2_IRQHandler(void){
       //TIM_ClearFlag
         
@@ -115,7 +115,7 @@
 
 **master分支已经维护，禁止使用git push --force！**
 
-Updated by haldak, 11/7/2015, 00:54am
+Updated by haldak, 11/27/2015, 00:54am
 
 大家加油呀~
 
