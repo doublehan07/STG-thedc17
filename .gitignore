@@ -1,0 +1,14 @@
+*.o
+*.lib
+*.a
+*.elf
+*.bin
+*.hex
+*~
+/stm32_discovery_arm_gcc_yushen_bkp/*
+
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
