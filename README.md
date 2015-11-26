@@ -4,8 +4,8 @@
 
 #开工啦！！！！！！```决赛倒计时 7 天```
 
-<pre><code>```修改的速度防止溢出代码```
-    //调节占空比控制电机速度,可供上层函数调用
+#修改的速度防止溢出代码
+<pre><code>    //调节占空比控制电机速度,可供上层函数调用
     void motor_setSpeed(uint32_t speed) {
       TIM1->CCR1= speed > 1000 ? 1000 : speed;
       TIM1->CCR2= speed > 1000 ? 1000 : speed;
@@ -16,11 +16,10 @@
     }
     void motor_setRightSpeed(uint32_t speed) {
       TIM1->CCR2 = speed > 1000 ? 1000 : speed;
-    }
-</code></pre>
+    }</code></pre>
 
-<pre><code>```修改的状态机预审版本代码```
-    void TIM2_IRQHandler(void){
+#修改的状态机预审版本代码
+<pre><code>    void TIM2_IRQHandler(void){
       //TIM_ClearFlag
         
     	static char if_turn_l = 0, if_turn_r = 0, if_backward = 0;
@@ -112,8 +111,7 @@
           }
       }
       TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-    }
-</code></pre>
+    }</code></pre>
 
 **master分支已经维护，禁止使用git push --force！**
 
