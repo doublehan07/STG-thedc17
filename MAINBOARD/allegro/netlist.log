@@ -1,0 +1,43 @@
+{ Using PSTWRITER 16.5.0 p001Oct-23-2015 at 15:26:25 }
+
+#1 WARNING(ORCAP-36006): Part Name "CAP_CAPPRD500W70D1000H1700P_680U 25V" is renamed to "CAP_CAPPRD500W70D1000H1700P_680".
+#2 WARNING(ORCAP-36006): Part Name "CAP_CAPPRD500W70D1000H1700P_680U" is renamed to "CAP_CAPPRD500W70D1000H1700P_6_1".
+#3 WARNING(ORCAP-36006): Part Name "LED_HDRV2W90P254_1X2_508X254X600P_LED" is renamed to "LED_HDRV2W90P254_1X2_508X254X60".
+#4 WARNING(ORCAP-36006): Part Name "PDB-C107_HDRV2W90P254_1X2_508X254X600P_PCELL" is renamed to "PDB-C107_HDRV2W90P254_1X2_508X2".
+#5 WARNING(ORCAP-36006): Part Name "FUSE_FUSRR2150W140L2620T940H1360P_FUSE 5A" is renamed to "FUSE_FUSRR2150W140L2620T940H136".
+#6 WARNING(ORCAP-36006): Part Name "CON3_HDRV3W88P254_1X3_762X254X600P_SWD" is renamed to "CON3_HDRV3W88P254_1X3_762X254X6".
+#7 WARNING(ORCAP-36006): Part Name "CON3_HDRV3W88P254_1X3_762X254X600P_CON3" is renamed to "CON3_HDRV3W88P254_1X3_762X254_1".
+#8 WARNING(ORCAP-36006): Part Name "JUMPER_HDRV2W90P254_1X2_508X254X600P_JUMPER" is renamed to "JUMPER_HDRV2W90P254_1X2_508X254".
+#9 WARNING(ORCAP-36006): Part Name "CON8_HDRV8W90P254_1X8_2032X254X200P_CON8" is renamed to "CON8_HDRV8W90P254_1X8_2032X254X".
+#10 WARNING(ORCAP-36006): Part Name "CON2_HDRV2W140P508_1X2_1016X508X200P_BATT" is renamed to "CON2_HDRV2W140P508_1X2_1016X508".
+#11 WARNING(ORCAP-36006): Part Name "CON4_HDRV4W88P254_1X4_1016X254X600P_CON4" is renamed to "CON4_HDRV4W88P254_1X4_1016X254X".
+#12 WARNING(ORCAP-36006): Part Name "CON4_HDRV4W88P254_1X4_1016X254X600P_MPU9250" is renamed to "CON4_HDRV4W88P254_1X4_1016X25_1".
+#13 WARNING(ORCAP-36006): Part Name "CON2_HDRV2W140P508_1X2_1016X508X200P_CON2" is renamed to "CON2_HDRV2W140P508_1X2_1016X5_1".
+#14 WARNING(ORCAP-36006): Part Name "MOSFET N_SOT95P240X110R-3N_SI2302" is renamed to "MOSFET N_SOT95P240X110R-3N_SI23".
+#15 WARNING(ORCAP-36006): Part Name "STM32F429VG_QFP50P1600X1600X160-100N_STM32F407VE" is renamed to "STM32F429VG_QFP50P1600X1600X160".
+#16 WARNING(ORCAP-36042): Pin "VSS" is renamed to "VSS#10" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#17 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#11" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#18 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#19" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#19 WARNING(ORCAP-36042): Pin "VSS" is renamed to "VSS#27" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#20 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#28" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#21 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#50" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#22 WARNING(ORCAP-36042): Pin "VSS" is renamed to "VSS#74" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#23 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#75" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#24 WARNING(ORCAP-36042): Pin "VSS" is renamed to "VSS#99" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#25 WARNING(ORCAP-36042): Pin "VDD" is renamed to "VDD#100" as visible power pin of same name already exists in Package STM32F429VG , U1: SCHEMATIC1, stm32 (3.40, 1.80).
+#26 WARNING(ORCAP-36006): Part Name "LM2596_TO170P1450X465-6N_LM2596-3.3" is renamed to "LM2596_TO170P1450X465-6N_LM2596".
+#27 WARNING(ORCAP-36006): Part Name "LM2596_TO170P1450X465-6N_LM2596-5.0" is renamed to "LM2596_TO170P1450X465-6N_LM25_1".
+#28 WARNING(ORCAP-36006): Part Name "DRV8801_SOP65P640X120-17N_DRV8801" is renamed to "DRV8801_SOP65P640X120-17N_DRV88".
+#29 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#4" as visible power pin of same name already exists in Package DRV8801 , U4: SCHEMATIC1, motor (3.30, 1.50).
+#30 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#13" as visible power pin of same name already exists in Package DRV8801 , U4: SCHEMATIC1, motor (3.30, 1.50).
+#31 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#17" as visible power pin of same name already exists in Package DRV8801 , U4: SCHEMATIC1, motor (3.30, 1.50).
+Scanning netlist files ...
+
+Loading... e:\project\thedc\mainboard\allegro/pstchip.dat
+
+Loading... e:\project\thedc\mainboard\allegro/pstchip.dat
+
+Loading... e:\project\thedc\mainboard\allegro/pstxprt.dat
+
+Loading... e:\project\thedc\mainboard\allegro/pstxnet.dat
+packaging the design view...

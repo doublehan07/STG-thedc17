@@ -1,0 +1,91 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : mainboard.brd                                 )
+(    Software Version : 16.5P002                                      )
+(    Date/Time        : Fri Oct 23 15:26:27 2015                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------
+
+RIPUP_ETCH FALSE;
+RIPUP_DELETE_FIRST_SEGMENT FALSE;
+RIPUP_RETAIN_BONDWIRE FALSE;
+RIPUP_SYMBOLS ALWAYS;
+Missing symbol has error FALSE;
+SCHEMATIC_DIRECTORY 'e:\project\thedc\mainboard\allegro';
+BOARD_DIRECTORY '';
+OLD_BOARD_NAME 'e:/project/thedc/mainboard/allegro/mainboard.brd';
+NEW_BOARD_NAME 'e:/project/thedc/mainboard/allegro/mainboard.brd';
+
+CmdLine: netrev.exe -5 -y 1 -i e:\project\thedc\mainboard\allegro e:\project\thedc\mainboard\allegro\mainboard.brd e:\project\thedc\mainboard\allegro\mainboard.brd
+
+------ Preparing to read pst files ------
+
+Starting to read e:/project/thedc/mainboard/allegro/pstchip.dat 
+   Finished reading e:/project/thedc/mainboard/allegro/pstchip.dat (00:00:00.03)
+Starting to read e:/project/thedc/mainboard/allegro/pstxprt.dat 
+   Finished reading e:/project/thedc/mainboard/allegro/pstxprt.dat (00:00:00.00)
+Starting to read e:/project/thedc/mainboard/allegro/pstxnet.dat 
+   Finished reading e:/project/thedc/mainboard/allegro/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/SPB_16.5/share/local/pcb/modules 
+
+PSMPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.5/share/local/pcb/symbols 
+           C:/Cadence/SPB_16.5/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.5/share/pcb/allegrolib/symbols 
+           E:\PCB\Cadence Allegro\ElementPackage\SPB16.5\public\ 
+
+PADPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.5/share/local/pcb/padstacks 
+           C:/Cadence/SPB_16.5/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.5/share/pcb/allegrolib/symbols 
+           E:\PCB\Cadence Allegro\ElementPackage\SPB16.5\public\ 
+
+
+------ Summary Statistics ------
+
+
+netrev run on Oct 23 15:26:27 2015
+   DESIGN NAME : 'MAINBOARD'
+   PACKAGING ON Apr 21 2011 10:02:30
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+ No warning detected
+
+cpu time      0:00:39
+elapsed time  0:00:01
+
