@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+<title>Zion</title> 
+<meta charset="utf-8"> 
+<xmp>
+
+# dc17程序说明
+
+
+## 1 软件架构<br>
+
+需要实现的功能：
+
+#### adc 8通道 进行led光电管电平采集
+
+通过红外接收管判断方向自主调整<br>
+
+
+#### usart 串口中断
+
+收到触发中断，采用usart-dma<br>
+进行信息包的接收<br>
+进行包的解析<br>
+逻辑判断(此处需要极其鲁棒的状态机)<br>
+封装包后进行发送<br>
+
+
+#### I2C 与惯性测量单元通信
+
+貌似是mpu6050?<br>
+利用惯导测绘地图
+
+
+#### tim+pwm 2通道+gpio电平高低 进行转速和正反控制
+
+
+
+## 2 发现的问题
+
+#### 1. makefile .c文件全部需要手动添加 还未找到解决方案
+#### 2. 我的429的usart2有点问题一直起不来，待寻找解决方案
+	妈蛋！调了一晚上的串口通讯换块板子瞬间好了！简直了！
+</xmp> 
+<script src="http://cdn.ztx.io/strapdown/strapdown.min.js"></script> 
+</html>
