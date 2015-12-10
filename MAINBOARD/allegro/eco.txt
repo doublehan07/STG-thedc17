@@ -1,0 +1,45 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  e:/project/thedc/mainboard/allegro/mainboard.brd                            |
+|                                                    Fri Oct 23 15:26:27 2015  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |    pin_id     |   x   |   y   |   to  net    |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  PA6          pins MOVED FROM this net (to net name listed on right)
+                                 U4.16            821.17 -792.43
+                                                                            PB0
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PA7          pins MOVED FROM this net (to net name listed on right)
+                                 U4.1             592.83 -792.43
+                                                                            PC5
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PB0          pins MOVED FROM this net (to net name listed on right)
+                                 U4.5             592.83 -894.80
+                                                                            PA6
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PB1          pins MOVED FROM this net (to net name listed on right)
+                                 U5.16           1478.17 -792.43
+                                                                           PE15
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PC5          pins MOVED FROM this net (to net name listed on right)
+                                 J22.1            254.00 -341.00
+                                                                            PA7
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PE12         pins MOVED FROM this net (to net name listed on right)
+                                 U5.1            1249.83 -792.43
+                                                                           PE14
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PE14         pins MOVED FROM this net (to net name listed on right)
+                                 J23.1            684.00 -341.00
+                                                                           PE12
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  PE15         pins MOVED FROM this net (to net name listed on right)
+                                 U5.5            1249.83 -894.80
+                                                                            PB1
+|------------------------------------------------------------------------------|
+|   total ECO changes reported  8                                              |
+|------------------------------------------------------------------------------|
